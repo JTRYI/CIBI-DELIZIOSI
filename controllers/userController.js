@@ -2,8 +2,9 @@
 
 const UsersDB = require('../models/UsersDB');
 const bcrypt = require('bcrypt'); //library to encrypt password with hash
-
+var jwt = require('jsonwebtoken'); // library for token
 var usersDB = new UsersDB();
+var secret = "secretkey"; 
 
 function getAllUsers(request, respond){
     usersDB.getAllUsers(function(error, result){
@@ -53,17 +54,24 @@ function updateUser(request, respond){
 
     var contact = request.body.contact;
     var birthday = request.body.birthday;
-    var id = request.params.id
+    var id = request.params.id;
+    var token = request.body.token;
+    try {
+        var decoded = jwt.verify(token, secret);  // token issued to user when login is needed to update the user details, this line of code to check for the validity of the token with secret key
+        usersDB.updateUser(firstName, lastName, userName, profilePic, email, password, contact, birthday, id, function(error, result){
+            if (error){
+                respond.json(error);
+            }
+    
+            else{
+                respond.json(result);
+            }
+        });
+    } catch (error) {
+        respond.json({result:"Invalid Token"});
+    }
 
-    usersDB.updateUser(firstName, lastName, userName, profilePic, email, password, contact, birthday, id, function(error, result){
-        if (error){
-            respond.json(error);
-        }
-
-        else{
-            respond.json(result);
-        }
-    });
+    
 }
 
 function deleteUser(request, respond){
@@ -95,7 +103,8 @@ function loginUser(request, respond){
             const hash = result[0].password;  // encrypted password
             var flag = bcrypt.compareSync(password,hash); //comparing clear text password with encrypted password
             if (flag){
-                respond.json({result:"Valid"}); // if flag is true meaning clear text pass matches the encrypted pass
+                var token = jwt.sign(email, secret); // issuing a token when the details keyed by the user is correct
+                respond.json({result:token}); // if flag is true meaning clear text pass matches the encrypted pass
             } else {
                 respond.json({result:"Invalid"}); // if flag is false
             }
