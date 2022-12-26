@@ -10,17 +10,21 @@ app.use(express.static("./public")); //static files are to be served from the pu
 app.use(express.json()); // json() is a method inbuilt in express to recognize the incoming Request Object from the web client as a JSON Object.
 // In time to come we will need to accept new or edited comments from user
 
+// routes for restaurants
 app.route('/restaurants').get(restaurantController.getAllRestaurants); // activate the getAllRestaurants method if the route is GET(method) /restaurants
 
+// routes for reviews
 app.route('/reviews').get(reviewController.getAllReviews); // activate the getAllReviews method if the route is GET(method) /reviews
 app.route('/reviews').post(reviewController.addReview); // activate the addReview method if the route is POST(method) /reviews
 app.route('/reviews/:id').put(reviewController.updateReview); // activate the updateReview method if the route is PUT(method)  /reviews/:id
 app.route('/reviews/:id').delete(reviewController.deleteReview); // activate the deleteReview method if the route is DELETE(method) /reviews/:id
 
-app.route('/users').get(userController.getAllUsers);
-app.route('/users').post(userController.addUser);
-app.route('/users/:id').put(userController.updateUser);
-app.route('/users/:id').delete(userController.deleteUser);
+// routes for users
+app.route('/users').get(userController.getAllUsers); // Retrieving all users
+app.route('/users').post(userController.addUser);    // Registering user
+app.route('/users/:id').put(userController.updateUser);  // Updating user details
+app.route('/users/:id').delete(userController.deleteUser);   // Deleting user account
+app.route('/login').post(userController.loginUser);    // User login
 
 
 
