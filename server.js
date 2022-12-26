@@ -1,0 +1,29 @@
+var express = require("express"); //using the express web framework
+
+
+var userController = require('./controllers/userController');
+var reviewController = require('./controllers/reviewController');
+var restaurantController = require('./controllers/restaurantController'); // set restaurantController to the restaurantController class
+var app = express(); // set variable app to be an instance of express framework. From now on, app is the express
+
+app.use(express.static("./public")); //static files are to be served from the public folder - for eg. html, images, css
+app.use(express.json()); // json() is a method inbuilt in express to recognize the incoming Request Object from the web client as a JSON Object.
+// In time to come we will need to accept new or edited comments from user
+
+app.route('/restaurants').get(restaurantController.getAllRestaurants); // activate the getAllRestaurants method if the route is GET(method) /restaurants
+
+app.route('/reviews').get(reviewController.getAllReviews); // activate the getAllReviews method if the route is GET(method) /reviews
+app.route('/reviews').post(reviewController.addReview); // activate the addReview method if the route is POST(method) /reviews
+app.route('/reviews/:id').put(reviewController.updateReview); // activate the updateReview method if the route is PUT(method)  /reviews/:id
+app.route('/reviews/:id').delete(reviewController.deleteReview); // activate the deleteReview method if the route is DELETE(method) /reviews/:id
+
+app.route('/users').get(userController.getAllUsers);
+app.route('/users').post(userController.addUser);
+app.route('/users/:id').put(userController.updateUser);
+app.route('/users/:id').delete(userController.deleteUser);
+
+
+
+
+app.listen(8080, "127.0.0.1"); // start the nodejs to be listening for incoming request @ port 8080
+console.log("web server running @ http://127.0.0.1:8080"); // output to console 
