@@ -1,6 +1,6 @@
 var express = require("express"); //using the express web framework
 
-
+var favouriteController = require('./controllers/favouriteController')
 var userController = require('./controllers/userController');
 var reviewController = require('./controllers/reviewController');
 var restaurantController = require('./controllers/restaurantController'); // set restaurantController to the restaurantController class
@@ -26,7 +26,10 @@ app.route('/users/:id').put(userController.updateUser);  // Updating user detail
 app.route('/users/:id').delete(userController.deleteUser);   // Deleting user account
 app.route('/login').post(userController.loginUser);    // User login
 
-
+// routes for favourites
+app.route('/favourites').get(favouriteController.getAllFavourites); // Retrieving all favourites
+app.route('/favourites').post(favouriteController.addToFavourites); // Add restaurant to favourites
+app.route('/favourites/:id').delete(favouriteController.deleteFavourites); // deleting restaurant from favourite
 
 
 app.listen(8080, "127.0.0.1"); // start the nodejs to be listening for incoming request @ port 8080
