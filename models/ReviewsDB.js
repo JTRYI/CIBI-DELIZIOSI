@@ -8,19 +8,24 @@ class ReviewsDB{
         db.query(sql, callback);
     }
 
+    getSomeReviews(restaurantID, callback){
+        var sql = "SELECT * from mydb.review WHERE restaurantID = ?"
+        db.query(sql, [restaurantID] , callback);
+    }
+
     addReview(review, callback){
         var sql = "INSERT INTO review (restaurant, username, review, reviewRating, timeStamp, userID, restaurantID) VALUES (?, ?, ?, ?, ?, ?, ?)";  
         db.query(sql, [review.getRestaurant().trim(), review.getUsername(), review.getReview(), review.getReviewRating(), review.getTimeStamp(), review.getUserId(), review.getRestaurantId()], callback);
     }
 
-    updateReview(review, callback){
-        var sql = "UPDATE review SET review = ?, reviewRating = ?, timeStamp = ? WHERE _id = ? "
-        return db.query(sql, [review.getReview(), review.getReviewRating(), review.getTimeStamp(), review.getId()], callback);
+    updateReview(review, reviewRating, timeStamp, id, username, callback){
+        var sql = "UPDATE review SET review = ?, reviewRating = ?, timeStamp = ? WHERE _id = ? AND username = ?"
+        return db.query(sql, [review, reviewRating, timeStamp, id, username], callback);
     }
 
-    deleteReview(reviewID, callback){
-        var sql = "DELETE from review WHERE _id = ?";
-        return db.query(sql, [reviewID], callback);
+    deleteReview(reviewID, username, callback){
+        var sql = "DELETE from review WHERE _id = ? AND username = ? ";
+        return db.query(sql, [reviewID, username], callback);
     }
 
 }

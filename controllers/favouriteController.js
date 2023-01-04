@@ -1,6 +1,7 @@
 "use strict";
 
 const FavouritesDB = require('../models/FavouritesDB');
+var jwt = require('jsonwebtoken'); // library for token
 
 var favouritesDB = new FavouritesDB();
 
@@ -11,6 +12,21 @@ function getAllFavourites(request, respond){
         }
 
         else {
+            respond.json(result);
+        }
+    });
+}
+
+function getSomeFavourites(request, respond){
+
+    var userID = request.body.userID;
+
+    favouritesDB.getSomeFavourites(userID, function(error, result){
+        if (error){
+            respond.json(error);
+        }
+
+        else{
             respond.json(result);
         }
     });
@@ -48,4 +64,4 @@ function deleteFavourites(request, respond){
 }
 
 
-module.exports = {getAllFavourites, addToFavourites, deleteFavourites};
+module.exports = {getAllFavourites, getSomeFavourites, addToFavourites, deleteFavourites};

@@ -9,24 +9,34 @@ class UsersDB {
         db.query(sql, callback);
     }
 
+    getUser(userName, callback){
+        var sql = "SELECT firstName, lastName, profilePic, email, contact, birthday from mydb.user WHERE userName = ?";
+        db.query(sql, [userName], callback);
+    }
+
     addUser(firstName, lastName, userName, profilePic, email, password, contact, birthday, callback){
         var sql = "INSERT INTO user (firstName, lastName, userName, profilePic, email, password, contact, birthday) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         db.query(sql, [firstName, lastName, userName, profilePic, email, password, contact, birthday], callback);
     }
 
-    updateUser(firstName, lastName, userName, profilePic, email, password, contact, birthday, id, callback){
-        var sql = "UPDATE user SET firstName = ?, lastName = ?, userName = ?, profilePic = ?, email = ?, password = ?, contact = ?, birthday = ? WHERE _id = ?"
-        return db.query(sql, [firstName, lastName, userName, profilePic, email, password, contact, birthday, id], callback );
+    updateUser(firstName, lastName, profilePic, email, contact, birthday, userName, callback){
+        var sql = "UPDATE user SET firstName = ?, lastName = ?, profilePic = ?, email= ?, contact = ?, birthday = ? WHERE userName = ?"
+        return db.query(sql, [firstName, lastName, profilePic, email, contact, birthday, userName], callback );
     }
 
-    deleteUser(userID, callback){
-        var sql = "DELETE from user WHERE _id = ?";
-        return db.query(sql, [userID], callback);
+    deleteUser(userName, callback){
+        var sql = "DELETE from user WHERE userName = ?";
+        return db.query(sql, [userName], callback);
     }
 
-    loginUser(email, callback){
-        var sql = "SELECT password from mydb.user WHERE email = ?";
-        db.query(sql, [email], callback);
+    loginUser(userName, callback){
+        var sql = "SELECT password from mydb.user WHERE userName = ?";
+        db.query(sql, [userName], callback);
+    }
+
+    updatePassword(password, userName, callback){
+        var sql = "UPDATE user SET password = ? WHERE userName = ?";
+        return db.query(sql, [password, userName], callback);
     }
 
 }

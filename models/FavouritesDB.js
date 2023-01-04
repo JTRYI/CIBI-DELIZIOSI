@@ -8,6 +8,11 @@ class FavouritesDB{
         db.query(sql, callback);
     }
 
+    getSomeFavourites(userID, callback){
+        var sql = "SELECT * from mydb.favourites WHERE userID = ?";
+        db.query(sql, [userID], callback);
+    }
+
     addToFavourites(restaurantID, userID, callback){
         var sql = "INSERT INTO favourites (restaurantID, userID) VALUES (?, ?)";
         db.query(sql, [restaurantID, userID], callback);
