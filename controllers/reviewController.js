@@ -19,7 +19,7 @@ function getAllReviews(request, respond){
 
 function getSomeReviews(request, respond){
     
-    var restaurantID = request.body.restaurantID;
+    var restaurantID = request.params.restaurantID;
 
     reviewsDB.getSomeReviews(restaurantID, function(error, result){
         if (error){
