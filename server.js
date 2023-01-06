@@ -15,7 +15,7 @@ app.route('/restaurants').get(restaurantController.getAllRestaurants); // activa
 
 // routes for reviews
 app.route('/reviews').get(reviewController.getAllReviews); // activate the getAllReviews method if the route is GET(method) /reviews
-app.route('/somereviews/:restaurantID').get(reviewController.getSomeReviews); // getting reviews for a particular restaurant
+app.route('/reviews/:restaurantID').get(reviewController.getSomeReviews); // getting reviews for a particular restaurant
 app.route('/reviews').post(reviewController.addReview); // activate the addReview method if the route is POST(method) /reviews
 app.route('/reviews/:id').put(reviewController.updateReview); // activate the updateReview method if the route is PUT(method)  /reviews/:id
 app.route('/reviews/:id').delete(reviewController.deleteReview); // activate the deleteReview method if the route is DELETE(method) /reviews/:id
@@ -31,7 +31,7 @@ app.route('/password').put(userController.updatePassword);  // Updating user pas
 
 // routes for favourites
 app.route('/favourites').get(favouriteController.getAllFavourites); // Retrieving all favourites
-app.route('/somefavourites').get(favouriteController.getSomeFavourites); // Retrieving favourites from a particular user
+app.route('/favourites/:userID').get(favouriteController.getSomeFavourites); // Retrieving favourites from a particular user
 app.route('/favourites').post(favouriteController.addToFavourites); // Add restaurant to favourites
 app.route('/favourites/:id').delete(favouriteController.deleteFavourites); // deleting restaurant from favourite
 

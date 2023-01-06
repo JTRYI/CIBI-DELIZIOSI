@@ -19,7 +19,7 @@ function getAllFavourites(request, respond){
 
 function getSomeFavourites(request, respond){
 
-    var userID = request.body.userID;
+    var userID = request.params.userID
 
     favouritesDB.getSomeFavourites(userID, function(error, result){
         if (error){

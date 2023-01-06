@@ -33,18 +33,29 @@ function getSomeReviews(request, respond){
 
 function addReview(request, respond){
     var now = new Date();
+    var restaurant = request.body.restaurant;
+    var review = request.body.review;
+    var reviewRating = request.body.reviewRating;
+    var userID = request.body.userID;
+    var restaurantID = request.body.restaurantID;
+    var token = request.body.token;
     
-    var review = new Review(null, request.body.restaurant, request.body.username, request.body.review, request.body.reviewRating, now.toString(), request.body.userID, request.body.restaurantID);
-        
-    reviewsDB.addReview(review, function(error, result){
-        if(error){
-            respond.json(error);
-        }
-        else{
-            respond.json(result);
-        }
-        });
+    try {
+        var decoded = jwt.verify(token, secret);
+        reviewsDB.addReview(restaurant, decoded, review, reviewRating, now.toString(), userID, restaurantID, function(error, result){
+            if(error){
+                respond.json(error);
+            }
+            else{
+                respond.json(result);
+            }
+            });
+    
 
+    } catch (error) {
+        respond.json({result:"Invalid Token"})
+    }    
+    
     } 
     
 
