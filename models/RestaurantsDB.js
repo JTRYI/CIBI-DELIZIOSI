@@ -14,7 +14,15 @@ class RestaurantsDB{
 
     }
 
+    getFilteredRestaurants(cuisineID, callback){
+        
+        var sql = "SELECT * from mydb.restaurant WHERE cuisineID = ?";
+        db.query(sql, [cuisineID], callback);
+    }
+
 }
+
+
 
 
 
