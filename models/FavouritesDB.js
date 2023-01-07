@@ -8,19 +8,19 @@ class FavouritesDB{
         db.query(sql, callback);
     }
 
-    getSomeFavourites(userID, callback){
-        var sql = "SELECT * from mydb.favourites WHERE userID = ?";
-        db.query(sql, [userID], callback);
+    getSomeFavourites(username, callback){
+        var sql = "SELECT * from mydb.favourites WHERE username = ?";
+        db.query(sql, [username], callback);
     }
 
-    addToFavourites(restaurantID, userID, callback){
-        var sql = "INSERT INTO favourites (restaurantID, userID) VALUES (?, ?)";
-        db.query(sql, [restaurantID, userID], callback);
+    addToFavourites(restaurantID, userID, username, callback){
+        var sql = "INSERT INTO favourites (restaurantID, userID, username) VALUES (?, ?, ?)";
+        db.query(sql, [restaurantID, userID, username], callback);
     }
 
-    deleteFavourites(favouriteID, callback){
-        var sql = "DELETE from favourites WHERE _id = ?";
-        db.query(sql, [favouriteID], callback);
+    deleteFavourites(favouriteID, username, callback){
+        var sql = "DELETE from favourites WHERE _id = ? AND username = ?";
+        db.query(sql, [favouriteID, username], callback);
     }
 }
 
