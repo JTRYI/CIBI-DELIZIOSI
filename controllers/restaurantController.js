@@ -30,9 +30,9 @@ function getAllRestaurants(request, respond){
 
 function getFilteredRestaurants(request, respond){
 
-    var cuisineID = request.params.cuisineID;
+    var Type = request.params.Type;
 
-    restaurantsDB.getFilteredRestaurants(cuisineID, function(error, result){
+    restaurantsDB.getFilteredRestaurants(Type, function(error, result){
 
         if (error){
 

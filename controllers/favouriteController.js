@@ -6,25 +6,13 @@ var jwt = require('jsonwebtoken'); // library for token
 var favouritesDB = new FavouritesDB();
 var secret = "secretkey";
 
-function getAllFavourites(request, respond){
-    favouritesDB.getAllFavourites(function(error, result){
-        if (error){
-            respond.json(error);
-        }
-
-        else {
-            respond.json(result);
-        }
-    });
-}
-
-function getSomeFavourites(request, respond){
+function getUserFavourites(request, respond){
 
     var token = request.params.token;
 
     try {
         var decoded = jwt.verify(token, secret);
-        favouritesDB.getSomeFavourites(decoded, function(error, result){
+        favouritesDB.getUserFavourites(decoded, function(error, result){
             if (error){
                 respond.json(error);
             }
@@ -43,12 +31,11 @@ function getSomeFavourites(request, respond){
 function addToFavourites(request, respond){
 
     var restaurantID = request.body.restaurantID;
-    var userID = request.body.userID;
     var token = request.params.token;
 
     try {
         var decoded = jwt.verify(token, secret);
-        favouritesDB.addToFavourites(restaurantID, userID, decoded, function(error, result){
+        favouritesDB.addToFavourites(restaurantID, decoded, function(error, result){
             if (error){
                 respond.json(error);
             }
@@ -85,5 +72,20 @@ function deleteFavourites(request, respond){
 
 }
 
+function getNumberOfFavourites(request, respond){
+    
+    favouritesDB.getNumberOfFavourites(function(error, result){
+        if (error){
+            respond.json(error);
+        }
 
-module.exports = {getAllFavourites, getSomeFavourites, addToFavourites, deleteFavourites};
+        else {
+            respond.json(result);
+        }
+
+
+    });
+}
+
+
+module.exports = {getUserFavourites, addToFavourites, deleteFavourites, getNumberOfFavourites};

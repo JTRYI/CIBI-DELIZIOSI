@@ -6,17 +6,6 @@ var jwt = require('jsonwebtoken'); // library for token
 var usersDB = new UsersDB();
 var secret = "secretkey"; 
 
-function getAllUsers(request, respond){
-    usersDB.getAllUsers(function(error, result){
-        if (error){
-            respond.json(error);
-        }
-
-        else{
-            respond.json(result);
-        }
-    });
-}
 
 function getUser(request, respond){
 
@@ -161,4 +150,4 @@ function updatePassword(request, respond){
 }
 
 
-module.exports = {getAllUsers, getUser, addUser, updateUser, deleteUser, loginUser, updatePassword};
+module.exports = {getUser, addUser, updateUser, deleteUser, loginUser, updatePassword};

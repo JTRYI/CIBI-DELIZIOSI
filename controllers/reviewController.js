@@ -17,20 +17,6 @@ function getAllReviews(request, respond){
 
 }
 
-function getSomeReviews(request, respond){
-    
-    var restaurantID = request.params.restaurantID;
-
-    reviewsDB.getSomeReviews(restaurantID, function(error, result){
-        if (error){
-            respond.json(error);
-        }
-        else{
-            respond.json(result);
-        }
-    });
-}
-
 function addReview(request, respond){
     var now = new Date();
     var restaurant = request.body.restaurant;
@@ -102,4 +88,4 @@ function deleteReview(request, respond){
     
 }
 
-module.exports = {getAllReviews, getSomeReviews, addReview, updateReview, deleteReview};
+module.exports = {getAllReviews, addReview, updateReview, deleteReview};

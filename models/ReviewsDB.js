@@ -8,11 +8,6 @@ class ReviewsDB{
         db.query(sql, callback);
     }
 
-    getSomeReviews(restaurantID, callback){
-        var sql = "SELECT * from mydb.review WHERE restaurantID = ?"
-        db.query(sql, [restaurantID] , callback);
-    }
-
     addReview(restaurant, username, review, reviewRating, timeStamp, userID, restaurantID, callback){
         var sql = "INSERT INTO review (restaurant, username, review, reviewRating, timeStamp, userID, restaurantID) VALUES (?, ?, ?, ?, ?, ?, ?)";  
         db.query(sql, [restaurant, username, review, reviewRating, timeStamp, userID, restaurantID], callback);
