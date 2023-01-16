@@ -16,7 +16,7 @@ class RestaurantsDB{
 
     getFilteredRestaurants(Type, callback){
         
-        var sql = "SELECT restaurant.* FROM restaurant INNER JOIN cuisines ON restaurant.cuisineID = cuisines._id WHERE Type = ?";
+        var sql = "SELECT restaurant.*, cuisines.Type FROM restaurant INNER JOIN cuisines ON restaurant.cuisineID = cuisines._id WHERE Type = ?";
         db.query(sql, [Type], callback);
     }
 
