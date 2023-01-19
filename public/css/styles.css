@@ -26,6 +26,8 @@
     
     width: 25%;
     margin-right: 350px; /* distance between logo and nav-links */
+    
+    
 }
 
 .nav-links ul li {
@@ -35,6 +37,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500; /* Semi Bold */
     border-bottom: 5px solid transparent;
+    
+    
+    
 }
 
 .nav-links ul li:hover{
@@ -69,7 +74,7 @@
 /* Login and Register CSS */
 
 #logoutMenu{
-    display: none;
+    visibility: hidden;
 }
 
 /* Restaurants Section */

@@ -1,0 +1,58 @@
+<!-- this is a structure of Bootstrap Modal -->
+<div class="modal fade " id="LogFailModal" tabindex="-1" role="dialog">    
+	<div class="modal-dialog modal-sm log-fail-modal " role="document">        
+		<div class="modal-content log-fail">            
+			<div class="modal-body px-5 text-center">                
+				<img src="images/failed.jpg" class="img-fluid custom-img-log-fail d-block mx-auto"> <!-- d-block mx-auto centers the image-->
+				<label id="log-fail-label-1">Denied!</label>
+                <label id="log-fail-label-2">Please enter the correct password or username!</label>
+				<button type="button" class="btn btn-secondary custom-btn-log-fail" data-dismiss="modal" style="float: none; margin: 0 auto;">Continue</button>
+			</div>        
+		</div>    
+	</div>
+</div>
+
+<style>
+
+	.log-fail-modal{
+		top: 5%;
+	}
+
+	.log-fail{
+		background: linear-gradient(to bottom, #f2f4f3, red);
+	}
+
+	#log-fail-label-1{
+		font-size: 25px;
+		color: #0a0908;
+		transform: translateY(-60px); /* Moves text up */
+
+	}
+
+	#log-fail-label-2{
+		text-align: center;
+		color: #0a0908;
+		transform: translateY(-55px); /* Moves text up */
+
+	}
+
+	.custom-img-log-fail{
+		width: 90px;
+		transform: translateY(-60px); /* Moves image up */
+	}
+		
+	.custom-btn-log-fail{
+		transform: translateY(-30px);
+		background-color: red;
+		color: #0a0908;
+		border-radius: 50%;
+		
+	}
+
+	.custom-btn-log-fail:hover{
+		background-color: darkred;
+		color: #0a0908;
+		border-radius: 50%;
+	}
+
+</style>

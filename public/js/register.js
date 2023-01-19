@@ -7,7 +7,8 @@ function registerMe() {
     registerUser.setRequestHeader("Content-Type", "application/json");
     registerUser.onload = function (){
 
-        console.log("Ok");
+        $('#registerModal').modal('hide')
+        $('#successModal').modal('show')
     }
 
     var firstname = document.getElementById("firstName").value;

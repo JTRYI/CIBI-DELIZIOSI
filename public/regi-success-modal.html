@@ -1,0 +1,58 @@
+<!-- this is a structure of Bootstrap Modal -->
+<div class="modal fade " id="successModal" tabindex="-1" role="dialog">    
+	<div class="modal-dialog modal-sm suc-modal" role="document">        
+		<div class="modal-content regi-success">            
+			<div class="modal-body px-5 text-center">                
+				<img src="images/success.png" class="img-fluid custom-img d-block mx-auto"> <!-- d-block mx-auto centers the image-->
+				<label id="success-label-1">Great!</label>
+                <label id="success-label-2">Your account has been created successfully!</label>
+				<button type="button" class="btn btn-secondary custom-btn-suc" data-dismiss="modal" style="float: none; margin: 0 auto;">Continue</button>
+			</div>        
+		</div>    
+	</div>
+</div>
+
+<style>
+
+	.suc-modal{
+		top: 5%; /*Moving the modal 5% away from the top */
+	}
+
+	.regi-success{
+		background: linear-gradient(to bottom, #f2f4f3, green);
+	}
+
+	#success-label-1{
+		font-size: 25px;
+		color: #0a0908;
+		transform: translateY(-60px); /* Moves text up */
+
+	}
+
+	#success-label-2{
+		text-align: center;
+		color: #0a0908;
+		transform: translateY(-55px); /* Moves text up */
+
+	}
+
+	.custom-img{
+		width: 125px;
+		transform: translateY(-60px); /* Moves image up */
+	}
+		
+	.custom-btn-suc{
+		transform: translateY(-30px);
+		background-color: lightgreen;
+		color: #0a0908;
+		border-radius: 50%;
+		
+	}
+
+	.custom-btn-suc:hover{
+		background-color: green;
+		color: #0a0908;
+		border-radius: 50%;
+	}
+
+</style>

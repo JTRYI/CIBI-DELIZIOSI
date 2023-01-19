@@ -1,0 +1,58 @@
+<!-- this is a structure of Bootstrap Modal -->
+<div class="modal fade " id="failModal" tabindex="-1" role="dialog">    
+	<div class="modal-dialog modal-sm fail-modal " role="document">        
+		<div class="modal-content regi-fail">            
+			<div class="modal-body px-5 text-center">                
+				<img src="images/failed.jpg" class="img-fluid custom-img-fail d-block mx-auto"> <!-- d-block mx-auto centers the image-->
+				<label id="fail-label-1">Denied!</label>
+                <label id="fail-label-2">Account was not created!</label>
+				<button type="button" class="btn btn-secondary custom-btn-fail" data-dismiss="modal" style="float: none; margin: 0 auto;">Continue</button>
+			</div>        
+		</div>    
+	</div>
+</div>
+
+<style>
+
+	.fail-modal{
+		top: 5%;
+	}
+
+	.regi-fail{
+		background: linear-gradient(to bottom, #f2f4f3, red);
+	}
+
+	#fail-label-1{
+		font-size: 25px;
+		color: #0a0908;
+		transform: translateY(-60px); /* Moves text up */
+
+	}
+
+	#fail-label-2{
+		text-align: center;
+		color: #0a0908;
+		transform: translateY(-55px); /* Moves text up */
+
+	}
+
+	.custom-img-fail{
+		width: 90px;
+		transform: translateY(-60px); /* Moves image up */
+	}
+		
+	.custom-btn-fail{
+		transform: translateY(-30px);
+		background-color: red;
+		color: #0a0908;
+		border-radius: 50%;
+		
+	}
+
+	.custom-btn-fail:hover{
+		background-color: darkred;
+		color: #0a0908;
+		border-radius: 50%;
+	}
+
+</style>

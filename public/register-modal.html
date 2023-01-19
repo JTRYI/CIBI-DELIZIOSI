@@ -1,96 +1,104 @@
 <!-- this is a structure of Bootstrap Modal -->
-<div class="modal fade " id="registerModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document" style="max-width: 60%;">
-        <div class="modal-content" style="background-color: #49111c;">
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog custom-regi-mod" role="document">
+        <div class="modal-content regi">
             <div class="modal-body px-5">
                 <form>
                     <label for="register-title" class="register-title">Registration</label>
                     <div class="form-row">
                         <div class="form-group col-6">
-                            <label for="exampleFirstName" class="heading-label" style="color: #0a0908;">First Name</label>
+                            <!--First name input section-->
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend"><i class="fa-solid fa-user"></i></span>
+                                    <span class="input-group-text" id="inputGroupPrepend"><i
+                                            class="fa-solid fa-user"></i></span>
                                 </div>
-                            <input type="firstName" class="form-control" id="firstName" 
-                                placeholder="Enter your first name" style="background-color: #A9927D;"">
+                                <input type="firstName" class="form-control" id="firstName"
+                                    placeholder="Enter your first name" style="background-color: #A9927D;"">
                             </div>
                         </div>
-                        <div class="form-group col-6">
-                            <label for="exampleLastName" class="heading-label" style="color: #0a0908;">Last Name</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend"><i class="fa-solid fa-user"></i></span>
+                        <div class=" form-group col-6">
+                                <!--Last name input section-->
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i
+                                                class="fa-solid fa-user"></i></span>
+                                    </div>
+                                    <input type="lastName" class="form-control" id="lastName"
+                                        placeholder="Enter your last name" style="background-color: #A9927D;">
                                 </div>
-                            <input type="lastName" class="form-control" id="lastName"
-                                placeholder="Enter your last name" style="background-color: #A9927D;">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="exampleUsername" class="heading-label" style="color: #0a0908;">Username</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend"><i class="fa-solid fa-circle-user"></i></span>
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <!--Username input section-->
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i
+                                                class="fa-solid fa-circle-user"></i></span>
+                                    </div>
+                                    <input type="Username" class="form-control" id="Username"
+                                        placeholder="Enter your username" style="background-color: #A9927D;">
+
                                 </div>
-                            <input type="Username" class="form-control" id="Username"
-                                placeholder="Enter your username" style="background-color: #A9927D;">
 
                             </div>
-                            
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="examplePassword" class="heading-label" style="color: #0a0908;">Password</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend"><i class="fa-solid fa-lock"></i></span>
+                            <div class="form-group col-6">
+                                <!--Password input section-->
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i
+                                                class="fa-solid fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="Password"
+                                        placeholder="Enter your password" style="background-color: #A9927D;">
                                 </div>
-                            <input type="password" class="form-control" id="Password"
-                                placeholder="Enter your password" style="background-color: #A9927D;">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="exampleEmail" class="heading-label" style="color: #0a0908;">Email</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend"><i class="fa-solid fa-envelope"></i></span>
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <!--Email input section-->
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i
+                                                class="fa-solid fa-envelope"></i></span>
+                                    </div>
+                                    <input type="Email" class="form-control" id="Email" placeholder="Enter your email"
+                                        style="background-color: #A9927D;">
                                 </div>
-                            <input type="Email" class="form-control" id="Email"
-                                placeholder="Enter your email" style="background-color: #A9927D;">
+
                             </div>
-                            
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="exampleContact" class="heading-label" style="color: #0a0908;">Contact</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend"><i class="fa-solid fa-phone"></i></span>
+                            <div class="form-group col-6">
+                                <!--Contact input section-->
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i
+                                                class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                    <input type="Contact" class="form-control" id="Contact"
+                                        placeholder="Enter your contact number" style="background-color: #A9927D;">
                                 </div>
-                            <input type="Contact" class="form-control" id="Contact"
-                                placeholder="Enter your contact number" style="background-color: #A9927D;">
-                            </div>    
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="exampleBirthday" class="heading-label" style="color: #0a0908;">Birthday</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend"><i class="fa-solid fa-cake-candles"></i></span>
-                                </div>
-                            <input type="Birthday" class="form-control" id="Birthday"
-                                placeholder="day/month/year" style="background-color: #A9927D;">
                             </div>
-                            
                         </div>
-                        
-                    </div>
-                    <div class="form-group col-12 text-center">
-                    <button onclick="registerMe();" type="button" class="btn btn-primary custom-btn " style="background-color: #A9927D">REGISTER</button>
-                    </div>
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <!--Birthday input section-->
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i
+                                                class="fa-solid fa-cake-candles"></i></span>
+                                    </div>
+                                    <input type="Birthday" class="form-control" id="Birthday"
+                                        placeholder="day/month/year" style="background-color: #A9927D;">
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group col-12 text-center">
+                            <button onclick="registerMe();" type="button" class="btn btn-primary custom-btn "
+                                style="background-color: #A9927D">REGISTER</button>
+                        </div>
                 </form>
             </div>
         </div>
@@ -99,94 +107,110 @@
 
 <!--CSS Styling -->
 <style>
+    .custom-regi-mod {
+        max-width: 60%;
+        top: 5%;
+        /*Moving the modal 5% away from the top */
 
-    .register-title{
-        color: #0a0908;
-        font-weight: bold;
+    }
+
+    .regi {
+        background: linear-gradient(to bottom, #0a0908, #49111c);
+
+
+    }
+
+    .register-title {
+        color: #f2f4f3;
+        font-style: italic;
         font-size: 25px;
         text-align: center;
         display: block;
         margin: 0 auto;
-        
+        margin-bottom: 16px;
+
     }
 
-    .heading-label{
-        text-align: center;
-        display: block;
-        
+    .input-group {
+        margin: 16px 0;
+        /* This will add a 16px margin to the top and bottom of each input field */
     }
 
-    #firstName::placeholder{
+    #firstName::placeholder {
         color: #0a0908;
         font-weight: lighter;
     }
 
-    #lastName::placeholder{
+    #lastName::placeholder {
         color: #0a0908;
         font-weight: lighter;
     }
 
-    #Username::placeholder{
+    #Username::placeholder {
         color: #0a0908;
         font-weight: lighter;
     }
 
-    #Password::placeholder{
+    #Password::placeholder {
         color: #0a0908;
         font-weight: lighter;
     }
 
-    #Email::placeholder{
+    #Email::placeholder {
         color: #0a0908;
         font-weight: lighter;
     }
 
-    #Contact::placeholder{
+    #Contact::placeholder {
         color: #0a0908;
         font-weight: lighter;
     }
 
-    #Birthday::placeholder{
+    #Birthday::placeholder {
         color: #0a0908;
         font-weight: lighter;
     }
 
-    #custom-small{
-        color: #0a0908 !important; /* Must add !important so that it overides a more important CSS created somewhere if dosent work */
+    #custom-small {
+        color: #0a0908 !important;
+        /* Must add !important so that it overides a more important CSS created somewhere if dosent work */
         font-weight: bold;
     }
 
-    .custom-btn{
-        color: #f2f4f3;
+    .custom-btn {
+        color: #0a0908;
         font-weight: bold;
         border: #0a0908;
-        transform: translateY(10px); /* This code allows the button to be moved down. If move up the btn can write transform: translateY(-valuepx ) */
-        
-        
+        transform: translateY(-5px);
+        /* This code allows the button to be moved up. If move down the btn can write transform: translateY(valuepx ) */
+
     }
 
-    .custom-btn:hover{
+    .custom-btn:hover {
         color: #0a0908;
         font-weight: bold;
-        border: #f2f4f3;
-        
+        border: #0a0908;
+        opacity: 0.8;
+
     }
 
-    .input-group-text{                 /* CSS Styling for the small box outside the icon */
+    .input-group-text {
+        /* CSS Styling for the small box outside the icon */
         background-color: #A9927D;
         border-color: #0a0908;
+
     }
 
-    .fa-solid{          /* CSS Styling for the icons */
+    .fa-solid {
+        /* CSS Styling for the icons */
         color: #0a0908;
+
     }
 
-    .form-control{
+    .form-control {
         border-color: #0a0908;
+
     }
-
-
-
 </style>
 
 

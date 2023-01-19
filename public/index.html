@@ -29,7 +29,7 @@
                         </a>
                     </li>
                     <li id="logoutMenu">
-                        <a href="#" id="logout">
+                        <a href="#" id="logout" onclick="logoutMe();">
                             Logout
                         </a>
                     </li>
@@ -59,6 +59,16 @@
 
     <!-- Register Modal below-->
     <div w3-include-html="register-modal.html"></div>
+    <!-- Register Success Modal below-->
+    <div w3-include-html="regi-success-modal.html"></div>
+    <!-- Register Fail Modal below-->
+    <div w3-include-html="regi-fail-modal.html"></div>
+    <!--Login Modal below-->
+    <div w3-include-html="login-modal.html"></div>
+    <!--Login Success Modal below-->
+    <div w3-include-html="login-success-modal.html"></div>
+    <!--Login Fail Modal below-->
+    <div w3-include-html="login-fail-modal.html"></div>
 
 </body>
 <script src="https://www.w3schools.com/lib/w3.js"></script>
@@ -71,6 +81,9 @@
 <script src="https://kit.fontawesome.com/0badf2e8d3.js" crossorigin="anonymous"></script>
 
 <script src="js/register.js"></script>
+<script src="js/login.js"></script>
+<script src="js/check-token.js"></script>
+<script src="js/logout.js"></script>
 
 
 </html>

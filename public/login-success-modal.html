@@ -1,0 +1,58 @@
+<!-- this is a structure of Bootstrap Modal -->
+<div class="modal fade " id="LogSuccessModal" tabindex="-1" role="dialog">    
+	<div class="modal-dialog modal-sm log-suc-modal" role="document">        
+		<div class="modal-content log-success">            
+			<div class="modal-body px-5 text-center">                
+				<img src="images/success.png" class="img-fluid log-custom-img d-block mx-auto"> <!-- d-block mx-auto centers the image-->
+				<label id="log-success-label-1">Great!</label>
+                <label id="log-success-label-2">You have successfully login!</label>
+				<button type="button" class="btn btn-secondary log-custom-btn-suc" data-dismiss="modal" style="float: none; margin: 0 auto;">Continue</button>
+			</div>        
+		</div>    
+	</div>
+</div>
+
+<style>
+
+	.log-suc-modal{
+		top: 5%; /*Moving the modal 5% away from the top */
+	}
+
+	.log-success{
+		background: linear-gradient(to bottom, #f2f4f3, green);
+	}
+
+	#log-success-label-1{
+		font-size: 25px;
+		color: #0a0908;
+		transform: translateY(-60px); /* Moves text up */
+
+	}
+
+	#log-success-label-2{
+		text-align: center;
+		color: #0a0908;
+		transform: translateY(-55px); /* Moves text up */
+
+	}
+
+	.log-custom-img{
+		width: 125px;
+		transform: translateY(-60px); /* Moves image up */
+	}
+		
+	.log-custom-btn-suc{
+		transform: translateY(-30px);
+		background-color: lightgreen;
+		color: #0a0908;
+		border-radius: 50%;
+		
+	}
+
+	.log-custom-btn-suc:hover{
+		background-color: green;
+		color: #0a0908;
+		border-radius: 50%;
+	}
+
+</style>

@@ -1,0 +1,117 @@
+<!-- this is a structure of Bootstrap Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog">    
+	<div class="modal-dialog custom-login-mod" role="document">        
+		<div class="modal-content login-content">            
+			<div class="modal-body px-5 d-flex align-items-center">
+                <div class="form-input-section">
+                <label class="loginTitle">Login</label>
+                <div class="form-group custom-form-login">
+                    <!--Username input section-->
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend"><i
+                                    class="fa-solid fa-circle-user"></i></span>
+                        </div>
+                        <input type="Username" class="form-control" id="UsernameLogin"
+                            placeholder="Enter your username" style="background-color: #A9927D;">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group custom-form-login">
+                    <!--Password input section-->
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend"><i
+                                    class="fa-solid fa-lock"></i></span>
+                        </div>
+                        <input type="password" class="form-control" id="PasswordLogin"
+                            placeholder="Enter your password" style="background-color: #A9927D;">
+                    </div>
+                </div>
+                <div class="form-group col-12 text-center">
+                <button onclick="loginMe();" type="button" class="btn btn-primary custom-btn-login"
+                                style="background-color: #A9927D">LOGIN</button>
+
+                </div>
+
+            </div>
+
+                <img src="images/wine.jpg" class="wine-img">
+
+			</div>        
+		</div>    
+	</div>
+</div>
+
+<style>
+
+
+.custom-login-mod{
+    top: 5%;
+    max-width: 704px;
+    
+    
+}
+
+.login-content{
+    
+    background: linear-gradient(to bottom, #0a0908, #49111c);
+    max-height: 275px;
+}
+
+.loginTitle {
+        color: #f2f4f3;
+        font-style: italic;
+        font-size: 25px;
+        text-align: center;
+        display: block;
+        transform: translateY(-20px); /*Moving title up */
+        
+    }
+
+
+.wine-img{
+    margin-left: 75px;
+    width: 230px;
+    height: 274px;
+    transform: translateY(-17px); /* Moving wine img up */
+    
+    
+}
+
+.custom-form-login{
+    width: 350px;
+    transform: translateY(-10px); 
+
+}
+
+.custom-btn-login{
+    color: #0a0908;
+    font-weight: bold;
+    border: #0a0908;
+    transform: translateY(5px); /*Moves the button down */
+    
+    
+}
+
+.custom-btn-login:hover{
+    color: #0a0908;
+    font-weight: bold;
+    border: #0a0908;
+    opacity: 0.8;
+}
+
+#UsernameLogin::placeholder{
+    color: #0a0908;
+    font-weight: lighter;
+}
+
+#PasswordLogin::placeholder{
+    color: #0a0908;
+    font-weight: lighter;
+}
+
+
+</style>
