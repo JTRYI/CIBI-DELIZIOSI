@@ -1,6 +1,7 @@
 .header{
     width: 100%;
     height: 60vh;
+    overflow-x: hidden;
     
 }
 
@@ -79,10 +80,160 @@
 
 /* Restaurants Section */
 
-.restaurants{
+.restaurants-section{
     width: 100%;
-    height: 100vh;
+    height: 225vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: #0a0908;
 }
+
+/* Restaurant Navigation Bar CSS */
+
+.restaurants-section nav{
+    height: 7vh;
+    top: 15px;
+    background-color: #49111c;
+}
+
+.custom-nav-genre ul{
+    margin-left: 70px; /* Moving the whole nav-listings to the right */
+}
+
+.nav-item{
+    padding: 0 25px; /* 0 from top and bottom, 25px from left and right. This padding for in between the listings */
+}
+
+.custom-genre{
+    color: #a9927d;
+}
+
+.custom-genre:hover{
+    color: #f2f4f3;
+}
+
+.custom-search{
+    background-color: #a9927d;
+    border-color: #0a0908;
+}
+
+.custom-search::placeholder{
+    color: #0a0908;
+    font-weight: lighter;
+    
+}
+
+.custom-search-btn{
+    background-color: #a9927d;
+    border-color: #0a0908;
+    color: #0a0908;
+    margin-right: 25px;
+
+}
+
+.custom-search-btn:hover{
+    background-color: #a9927d;
+    border-color: #0a0908;
+    color: #0a0908;
+    opacity: 0.8;
+}
+
+/* Restaurant Card Section */
+
+#restaurantTable{
+    
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    
+       
+}
+
+.card{
+    max-width: 325px;
+    height: 45vh;
+    margin: 15px 20px; /* margin of 15px to the top and bottom and 20px to the left and right of the card*/
+    background-color: #f2f4f3;
+    border-color: #0a0908;
+    
+    
+}
+
+
+.card-img-top{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    padding-top: 5px;
+    
+}
+
+.card-title{
+    font-weight: bold;
+    
+}
+
+/*CSS for Ratings on the Restaurant card */
+.rating-section{
+    display: flex;
+    align-items: center;
+    
+}
+
+.view-ratings{
+    font-size: 17px;
+    font-weight: 500; /* Semi bold */
+    padding-left: 20px;
+}
+
+/* CSS for Reviews on the Restaurant card */
+.review-section{
+    display: flex;
+    align-items: center;
+}
+
+.view-reviews{
+    font-size: 17px;
+    font-weight: 500; /* Semi bold */
+    padding-right: 15px; /* Leaving space between label and icon */
+    padding-left: 20px;  /* Giving 20px padding between start of card to label */
+}
+
+.custom-comment{
+
+    padding-bottom: 7px;
+}
+
+/*CSS for Favourites on the Restaurant card */
+
+.favourites-section{
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.add-to-favourites{
+
+    font-size: 17px;
+    font-weight: 500;
+    padding-right: 15px; /* Leaving space between label and icon */
+    padding-left: 20px; /* Giving 20px padding between start of card to label */
+    
+}
+
+.custom-heart{
+    font-size: 20px;
+    padding-bottom: 7px;
+}
+
+
+
+
+
+
+
+
 
 
 

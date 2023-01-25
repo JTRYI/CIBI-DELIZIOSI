@@ -1,0 +1,90 @@
+<!-- this is a structure of Bootstrap Modal -->
+<div class="modal fade" id="restaurantModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center custom-res-header">
+                <h3 class="modal-title text-light" id="restaurantName">Modal title</h3>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center">
+                    <div class="col-5">
+                        <img class="img-fluid img-thumbnail" id="restaurantImg">
+                    </div>
+                    <div class="col-7">
+                        <table class="table table-hover table-responsive table-sm">
+                            <tr>
+                                <td><span class="badge badge-pill badge-dark font-weight-bold">Outlet</span></td>
+                                <td id="Outlet"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-pill badge-dark font-weight-bold">Address</span></td>
+                                <td id="Address" style=' width: 200px; word-break: break-all; word-wrap: break-word;'></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-pill badge-dark font-weight-bold">Operating Hours</span></td>
+                                <td id="OperatingHours"></td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+
+                    <div class="col-12">
+
+                        <table class="table table-hover table-responsive table-sm">
+
+                            <tr>
+                                <td><span class="badge badge-pill badge-dark font-weight-bold">Contact</span></td>
+                                <td id="contact"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-pill badge-dark font-weight-bold">Website Link</span></td>
+                                <td id="WebLink"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-pill badge-dark font-weight-bold">Description</span></td>
+                                <td id="Description"></td>
+                            </tr>
+
+                        </table>
+                        
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-res-header{
+        background-color: #49111c;
+        display: flex;
+        align-items: center;
+    }
+
+    .custom-res-header h3{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #f2f4f3;
+    }
+
+    .custom-res-header button{
+        background-color: #a9927d;
+        color: #0a0908;
+        width: 50px;
+        height: 50px;
+        margin-right: 3px !important; /* Must use !important as bootstrap has a built in css for the button which is float: right, so need to overwrite */
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        
+    }
+
+
+
+    
+
+</style>

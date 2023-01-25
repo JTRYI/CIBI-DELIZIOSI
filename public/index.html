@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="css/styles.css">
     <title>CIBI DELIZIOSI</title>
 </head>
-<body>
+
+<body onload="getRestaurantData()">
 
     <div class="header">
         <img src="images/food-banner.png" id="banner">
@@ -37,23 +40,64 @@
             </div>
         </nav>
         <div class="introduction">
-            <p> <b>"CIBI DELIZIOSI"</b> also known as <b>"DELICIOUS FOODS"</b> in English <br> is a Restaurant Review Website.
+            <p> <b>"CIBI DELIZIOSI"</b> also known as <b>"DELICIOUS FOODS"</b> in English <br> is a Restaurant Review
+                Website.
                 This website allows you to see <br> information about your desired restaurants. Information such as <br>
                 the <b>Location, Operating Hours</b> and <b>Reviews</b> are all available at <br> a click of a button.
                 <br>
                 <br>
                 Get started now by clicking <a href=""><i>Register!</i></a>
-                
+
             </p>
         </div>
     </div>
 
     <!-- Get All Restaurants Section-->
 
-    <div class="restaurants">
-        
+    <div class="restaurants-section">
+
+        <div class="restaurant-navbar">
+            <nav class="navbar navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse custom-nav-genre" id="navbarTogglerDemo01">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link custom-genre" href="#">All Restaurants</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-genre" href="#">Chinese</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-genre" href="#">Malay</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-genre" href="#">Indian</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-genre" href="#">Western</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-genre" href="#">Japanese</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2 custom-search" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0 custom-search-btn"
+                            type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Displays thumbnails of the restaurants here -->
+        <div id="restaurantTable" class="row"></div>
+
     </div>
-    
+
 
 
 
@@ -69,6 +113,8 @@
     <div w3-include-html="login-success-modal.html"></div>
     <!--Login Fail Modal below-->
     <div w3-include-html="login-fail-modal.html"></div>
+    <!--Restaurants Modal below-->
+    <div w3-include-html="restaurants-modal.html"></div>
 
 </body>
 <script src="https://www.w3schools.com/lib/w3.js"></script>
@@ -80,6 +126,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/0badf2e8d3.js" crossorigin="anonymous"></script>
 
+<script src="js/app.js"></script>
+<script src="js/restaurants.js"></script>
 <script src="js/register.js"></script>
 <script src="js/login.js"></script>
 <script src="js/check-token.js"></script>
