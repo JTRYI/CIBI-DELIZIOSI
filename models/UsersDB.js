@@ -6,7 +6,7 @@ class UsersDB {
 
 
     getUser(userName, callback){
-        var sql = "SELECT firstName, lastName, profilePic, email, contact, birthday from mydb.user WHERE userName = ?";
+        var sql = "SELECT distinct userName, firstName, lastName, profilePic, email, contact, birthday from mydb.user WHERE userName = ?";
         db.query(sql, [userName], callback);
     }
 

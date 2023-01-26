@@ -8,8 +8,8 @@ var currentIndex=0;
 var review_url = "/reviews";
 var review_array = []; // This creates an empty review array
 
-var starBW = 'images/whitestar.png';
-var starYellow = 'images/yellowstar.png';
+var popcornBWImage = 'images/popcorn_bw.png';
+var popcornImage = 'images/popcorn.png';
 var rating = 0;
 
 

@@ -1,0 +1,67 @@
+<!-- this is a structure of Bootstrap Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center review-mod-header">
+                <h5 class="modal-title text-light" id="review">Review</h5>
+	<button type="button" class="btn btn-primary" id="newReview" data-toggle="modal" data-target="#newReviewModal" 	data-dismiss="modal" onClick="newReview()">Add Review</button>
+            </div>
+            <div class="modal-body">
+                <div id="emptyReview">No review yet. Create one now</div>
+                <div class="row px-5" id="reviewBody"></div>
+                <div class="modal-footer review-mod-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .review-mod-header{
+        background-color: #49111c;
+        display: flex;
+        align-items: center;
+    }
+
+    .review-mod-header h5{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        color: #f2f4f3;
+        padding-left: 10px;
+    }
+
+    .review-mod-header button{
+        background-color: #a9927d;
+        color: #0a0908;
+        border-color: #0a0908;
+        margin-right: 3px !important; /* Must use !important as bootstrap has a built in css for the button which is float: right, so need to overwrite */
+    
+    }
+
+    .review-mod-header button:hover{    
+        background-color: #a9927d;
+        color: #0a0908;
+        border-color: #0a0908;
+        opacity: 0.8;
+    }
+
+    .review-mod-footer button{
+        background-color: #a9927d;
+        color: #0a0908;
+        border-color: #0a0908;
+
+    }
+
+    .review-mod-footer button:hover{
+        background-color: #a9927d;
+        color: #0a0908;
+        border-color: #0a0908;
+        opacity: 0.8;
+    }
+
+
+
+
+</style>

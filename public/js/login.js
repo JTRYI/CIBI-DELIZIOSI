@@ -16,7 +16,7 @@ function loginMe() {
             $('#LogSuccessModal').modal('show')
             document.getElementById("registerMenu").style.visibility = "hidden"
             document.getElementById("loginMenu").style.visibility = "hidden"
-            document.getElementById("logoutMenu").style.visibility = "visible"
+            document.getElementById("profileMenu").style.visibility = "visible"
             sessionStorage.setItem("token", token.result); // First element in bracket is key, can be any name. second element is value
             
         } else {

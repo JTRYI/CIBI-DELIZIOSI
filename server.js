@@ -21,7 +21,7 @@ app.route('/reviews/:id').put(reviewController.updateReview); // activate the up
 app.route('/reviews/:id').delete(reviewController.deleteReview); // activate the deleteReview method if the route is DELETE(method) /reviews/:id
 
 // routes for users
-app.route('/member').get(userController.getUser); // Retrieving information for a particular user
+app.route('/member').post(userController.getUser); // Retrieving information for a particular user
 app.route('/users').post(userController.addUser);    // Registering user
 app.route('/users').put(userController.updateUser);  // Updating user details
 app.route('/users').delete(userController.deleteUser);   // Deleting user account

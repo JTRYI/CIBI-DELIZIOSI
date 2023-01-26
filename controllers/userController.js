@@ -10,22 +10,21 @@ var secret = "secretkey";
 function getUser(request, respond){
 
     var token = request.body.token;
-
+    
     try {
-        var decoded = jwt.verify(token, secret)
-        usersDB.getUser(decoded, function(error, result){
-            if (error){
+        var decoded = jwt.verify(token, secret);
+        usersDB.getUser(decoded, function (error, result) {
+            if (error) {
                 respond.json(error);
             }
-
             else {
                 respond.json(result);
             }
         });
+        
     } catch (error) {
         respond.json({result:"Invalid Token"});
     }
-    
 }
 
 function addUser(request, respond){

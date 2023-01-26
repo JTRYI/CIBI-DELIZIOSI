@@ -8,7 +8,7 @@ function getRestaurantData() {
         //get all the restaurant records into our restaurant array        
         restaurant_array = JSON.parse(request.responseText);
         //Fetch the reviews as well        
-        //fetchComments();
+        fetchReviews();
         console.log(restaurant_array) // output to console        
         //call the function so as to display all movies tiles for "Now Showing"        	
         displayRestaurants();
@@ -30,10 +30,10 @@ function displayRestaurants() {
         if (restaurant_array[count]) {
             var thumbnail = restaurant_array[count].restaurantThumb;
             var title = restaurant_array[count].restaurantName;
-            var cell = '<div class="card col-md-4"><img class="card-img-top img-fluid" src="' + thumbnail + '" alt="Card image cap">\
+            var cell = '<div class="card col-md-4 card-restaurant"><img class="card-img-top img-fluid" src="' + thumbnail + '" alt="Card image cap">\
                             <div class="card-body">\<h5 style="cursor:pointer" data-toggle="modal" data-target="#restaurantModal" class="card-title" item="' + count + '" onClick="showRestaurantDetails(this)">' + title + '</h5></div>\
                             <div class = "ratings-section"><label class = "view-ratings">Rating:</label></div>\
-                            <div class = "review-section"><label class = "view-reviews">View Reviews</label><i class="far fa-comment fa-lg custom-comment" style="float:left;cursor:pointer" data-toggle="modal" data-target="#restaurantModal" item="' + count + '" onClick="showRestaurantReviews(this)"></i> </div>\
+                            <div class = "review-section"><label class = "view-reviews">View Reviews</label><i class="far fa-comment fa-lg custom-comment" style="float:left;cursor:pointer" data-toggle="modal" data-target="#reviewModal" item="' + count + '" onClick="showRestaurantReviews(this)"></i> </div>\
                             <div class = "favourites-section"><label class = "add-to-favourites">Add to Favourites</label><i class="fa-regular fa-heart custom-heart"></i>\
     </div>'
             table.insertAdjacentHTML('beforeend', cell);
