@@ -4,4 +4,5 @@ function logoutMe(){
     document.getElementById("loginMenu").style.visibility = "visible"
     document.getElementById("profileMenu").style.visibility = "hidden"
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("profile");
 }

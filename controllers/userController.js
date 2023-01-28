@@ -7,6 +7,28 @@ var usersDB = new UsersDB();
 var secret = "secretkey"; 
 
 
+function getAllUsers(request,respond){
+
+    usersDB.getAllUsers(function(error, result){
+
+        if(error){
+
+            respond.json(error);
+
+        }
+
+        else{
+
+            respond.json(result);
+
+        }
+
+    });
+
+}
+
+
+
 function getUser(request, respond){
 
     var token = request.body.token;
@@ -149,4 +171,4 @@ function updatePassword(request, respond){
 }
 
 
-module.exports = {getUser, addUser, updateUser, deleteUser, loginUser, updatePassword};
+module.exports = {getAllUsers, getUser, addUser, updateUser, deleteUser, loginUser, updatePassword};

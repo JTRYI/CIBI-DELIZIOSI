@@ -7,6 +7,7 @@ function fetchReviews() {
     request.onload = function () {
         //get all the reviews records into our reviews array
         review_array = JSON.parse(request.responseText);
+        sessionStorage.setItem("reviews", JSON.stringify(review_array));
         console.log(review_array);
     };
 
@@ -16,6 +17,7 @@ function fetchReviews() {
 //This function is to display all the reviews of that restaurant
 //whenever the user click on the "comment" button
 function showRestaurantReviews(element) {
+
     document.getElementById("emptyReview").innerHTML = "No review yet. Create one now";
     var item = element.getAttribute("item");
     currentIndex = item;
@@ -42,26 +44,31 @@ function showRestaurantReviews(element) {
                 console.log(i);
                 star += "<img src='images/popcorn.png' style='width:50px' />";
             }
-            star += "<i class='far fa-trash-alt fa-2x edit custom-bin' data-dismiss='modal' item='" + i + "' onClick='deleteComment(this)' ></i>";
-            star += "<i class='far fa-edit fa-2x edit custom-edit' data-toggle='modal' data-target='#editCommentModal' data-dismiss='modal' item='" + i + "' onClick='editComment(this)' ></i>";
+            star += "<i class='far fa-trash-alt fa-2x edit custom-bin' data-dismiss='modal' item='" + i + "' onClick='deleteReview(this)' ></i>";
+            star += "<i class='far fa-edit fa-2x edit custom-edit' data-toggle='modal' data-target='#editReviewModal' data-dismiss='modal' item='" + i + "' onClick='editReview(this)' ></i>";
             document.getElementById("rating" + i).insertAdjacentHTML('beforebegin', star + "<br/>");
         }
     }
 }
 
 function newReview() {
+
     //Initialise each HTML input elements in the modal window with default value.
     var backButton = document.getElementById("newReview")
     var token = sessionStorage.getItem("token");
-    if (token != null){
+    var profile = JSON.parse(sessionStorage.getItem("profile"))
+
+
+    if (token != null) {
+        username = profile[0].userName
         rating = 0;
-        document.getElementById("nickname").value = "";
+        document.getElementById("nickname").value = username;
         document.getElementById("userComments").value = "";
 
         backButton.dataset.target = "#newReviewModal"
     }
 
-    else{
+    else {
         alert("Please login to add reviews!")
         backButton.dataset.target = "#";
     }
@@ -70,25 +77,26 @@ function newReview() {
 
 // Submit or send the new review to the server to be added.
 function addReview() {
+
     var review = new Object();
-    review.restaurant = restaurant_array[currentIndex].restaurantName; // Restaurant name is required by server to create new review 
-    review.userID = user_array[currentIndex]._id; // Movie title is required by server to create new comment
+    review.restaurant = restaurant_array[currentIndex].restaurantName; // Restaurant name is required by server to create new review
     review.username = document.getElementById("nickname").value; // Value from HTML input text
     review.review = document.getElementById("userComments").value; // Value from HTML input text
-    review.datePosted = null; // Change the datePosted to null instead of taking the timestamp on the client side;
-    review.rating = rating;
+    review.reviewRating = rating;
+    review.timeStamp = null;
+    review.restaurantID = restaurant_array[currentIndex]._id;
 
     var postReview = new XMLHttpRequest(); // new HttpRequest instance to send comment
 
-    postReview.open("POST", comment_url, true); //Use the HTTP POST method to send data to server
+    postReview.open("POST", review_url, true); //Use the HTTP POST method to send data to server
 
     postReview.setRequestHeader("Content-Type", "application/json");
     postReview.onload = function () {
-        console.log("new comment sent");
-        fetchComments(); // fetch all comments again so that the web page can have updated comments.     
+        console.log("New review sent");
+        fetchReviews(); // fetch all comments again so that the web page can have updated comments.     
     };
-    // Convert the data in Comment object to JSON format before sending to the server.
-    postReview.send(JSON.stringify(comment));
+
+    postReview.send(JSON.stringify(review));
 }
 
 //This function allows the user to mouse hover the black and white popcorn
@@ -155,5 +163,62 @@ function displayColorPopcorn(classname, num) {
     for (let p of pop) {
         p.setAttribute("src", popcornBWImage);
     }
-    changeStarImage(num, classTarget);
+    changePopcornImage(num, classTarget);
+}
+
+//This function will hide the existing modal and present a modal with the selected comment
+//so that the user can attempt to change the username, rating or movie review
+function editReview(element) {
+
+    var item = element.getAttribute("item");
+    currentIndex = item;
+
+    document.getElementById("editnickname").value = review_array[item].username;
+    document.getElementById("edituserComments").value = review_array[item].review;
+    console.log(review_array[item].reviewRating);
+    displayColorPopcorn('editpop', review_array[item].reviewRating);
+
+}
+
+
+//This function sends the review data to the server for updating
+function updateReview() {
+    var response = confirm("Are you sure you want to update this comment?");
+    if (response == true) {
+        var edit_review_url = review_url + "/" + review_array[currentIndex]._id;
+        var updateReview = new XMLHttpRequest(); // new HttpRequest instance to send request to server
+        updateReview.open("PUT", edit_review_url, true); //The HTTP method called 'PUT' is used here as we are updating data
+        updateReview.setRequestHeader("Content-Type", "application/json");
+        review_array[currentIndex].review = document.getElementById("edituserComments").value;
+        review_array[currentIndex].reviewRating = rating;
+        updateReview.onload = function () {
+            fetchReviews();
+        };
+        updateReview.send(JSON.stringify({
+            review: document.getElementById('edituserComments').value,
+            reviewRating: rating,
+            token: sessionStorage.getItem("token")
+
+        }));
+    }
+}
+
+//This function deletes the selected comment in a specific restaurant
+function deleteReview(element) {
+    var response = confirm("Are you sure you want to delete this comment?");
+
+    if (response == true) {
+        var item = element.getAttribute("item"); //get the current item
+        var delete_review_url = review_url + "/" + review_array[item]._id;
+        var eraseReview = new XMLHttpRequest();
+        eraseReview.open("DELETE", delete_review_url, true);
+        eraseReview.setRequestHeader("Content-Type", "application/json");
+        eraseReview.onload = function () {
+            fetchReviews();
+        };
+
+        eraseReview.send(JSON.stringify({
+            token: sessionStorage.getItem("token")
+        }));
+    }
 }

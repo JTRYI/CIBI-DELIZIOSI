@@ -8,9 +8,9 @@ class ReviewsDB{
         db.query(sql, callback);
     }
 
-    addReview(restaurant, username, review, reviewRating, timeStamp, userID, restaurantID, callback){
+    addReview(review, callback){
         var sql = "INSERT INTO review (restaurant, username, review, reviewRating, timeStamp, userID, restaurantID) VALUES (?, ?, ?, ?, ?, ?, ?)";  
-        db.query(sql, [restaurant, username, review, reviewRating, timeStamp, userID, restaurantID], callback);
+        db.query(sql, [review.getRestaurant(), review.getUsername(), review.getReview(), review.getReviewRating(), review.getTimeStamp(), review.getUserId(), review.getRestaurantId()], callback);
     }
 
     updateReview(review, reviewRating, timeStamp, id, username, callback){

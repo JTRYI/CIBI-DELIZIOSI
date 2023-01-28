@@ -7,16 +7,38 @@ function getRestaurantData() {
     request.onload = function () {
         //get all the restaurant records into our restaurant array        
         restaurant_array = JSON.parse(request.responseText);
+        sessionStorage.setItem("restaurant", JSON.stringify(restaurant_array));
         //Fetch the reviews as well        
         fetchReviews();
         console.log(restaurant_array) // output to console        
         //call the function so as to display all movies tiles for "Now Showing"        	
         displayRestaurants();
+        //Fetch the users as well
+        fetchUsers();
+        
     };
 
     //This command starts the calling of the restaurants web api    
     request.send();
 }
+
+function fetchUsers(){
+
+    var fetchAllUser = new XMLHttpRequest();
+
+    fetchAllUser.open('GET', 'http://127.0.0.1:8080/users', true);
+
+    fetchAllUser.onload = function (){
+
+        user_array = JSON.parse(fetchAllUser.responseText);
+        sessionStorage.setItem("users", JSON.stringify(user_array));
+        console.log(user_array)
+        
+    }
+
+    fetchAllUser.send();
+}
+
 
 function displayRestaurants() {
     var table = document.getElementById("restaurantTable");
@@ -60,3 +82,5 @@ function showRestaurantDetails(element) {
     
 
 }
+
+

@@ -4,9 +4,13 @@ var db = require('../db-connection');
 
 class UsersDB {
 
+    getAllUsers(callback){
+        var sql = "SELECT * from mydb.user";
+        db.query(sql,callback);
+    }
 
     getUser(userName, callback){
-        var sql = "SELECT distinct userName, firstName, lastName, profilePic, email, contact, birthday from mydb.user WHERE userName = ?";
+        var sql = "SELECT distinct userName, _id, firstName, lastName, profilePic, email, contact, birthday from mydb.user WHERE userName = ?";
         db.query(sql, [userName], callback);
     }
 

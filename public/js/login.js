@@ -18,7 +18,7 @@ function loginMe() {
             document.getElementById("loginMenu").style.visibility = "hidden"
             document.getElementById("profileMenu").style.visibility = "visible"
             sessionStorage.setItem("token", token.result); // First element in bracket is key, can be any name. second element is value
-            
+            location.reload() // refreshes the page  when login so that profile will be added to session storage for loadingProfile.js
         } else {
             $('#LogFailModal').modal('show')
         }
