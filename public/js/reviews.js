@@ -172,7 +172,7 @@ function editReview(element) {
 
     var item = element.getAttribute("item");
     currentIndex = item;
-
+    
     document.getElementById("editnickname").value = review_array[item].username;
     document.getElementById("edituserComments").value = review_array[item].review;
     console.log(review_array[item].reviewRating);

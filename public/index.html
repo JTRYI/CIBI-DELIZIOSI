@@ -64,7 +64,7 @@
 
     <!-- Get All Restaurants Section-->
 
-    <div class="restaurants-section">
+    <div class="restaurants-section" id="res-sec">
 
         <div class="restaurant-navbar">
             <nav class="navbar navbar-expand-lg">
@@ -74,23 +74,21 @@
                 </button>
                 <div class="collapse navbar-collapse custom-nav-genre" id="navbarTogglerDemo01">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
                         <li class="nav-item">
-                            <a class="nav-link custom-genre" href="#">All Restaurants</a>
+                            <a class="nav-link custom-genre" href="#res-sec" onclick="listChineseRestaurants()">Chinese</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-genre" href="#">Chinese</a>
+                            <a class="nav-link custom-genre" href="#res-sec" onclick="listMalayRestaurants()">Malay</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-genre" href="#">Malay</a>
+                            <a class="nav-link custom-genre" href="#res-sec" onclick="listIndianRestaurants()">Indian</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-genre" href="#">Indian</a>
+                            <a class="nav-link custom-genre" href="#res-sec" onclick="listWesternRestaurants()">Western</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-genre" href="#">Western</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link custom-genre" href="#">Japanese</a>
+                            <a class="nav-link custom-genre" href="#res-sec" onclick="listJapaneseRestaurants()">Japanese</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">

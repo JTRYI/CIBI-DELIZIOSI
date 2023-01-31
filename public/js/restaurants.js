@@ -12,44 +12,44 @@ function getRestaurantData() {
         fetchReviews();
         console.log(restaurant_array) // output to console        
         //call the function so as to display all movies tiles for "Now Showing"        	
-        displayRestaurants();
+        displayRestaurants(category);
         //Fetch the users as well
         fetchUsers();
-        
+
     };
 
     //This command starts the calling of the restaurants web api    
     request.send();
 }
 
-function fetchUsers(){
+function fetchUsers() {
 
     var fetchAllUser = new XMLHttpRequest();
 
     fetchAllUser.open('GET', 'http://127.0.0.1:8080/users', true);
 
-    fetchAllUser.onload = function (){
+    fetchAllUser.onload = function () {
 
         user_array = JSON.parse(fetchAllUser.responseText);
-        sessionStorage.setItem("users", JSON.stringify(user_array));
-        console.log(user_array)
-        
+        //sessionStorage.setItem("users", JSON.stringify(user_array));
+        //console.log(user_array)
+
     }
 
     fetchAllUser.send();
 }
 
 
-function displayRestaurants() {
+function displayRestaurants(category) {
     var table = document.getElementById("restaurantTable");
 
     table.innerHTML = "";
     totalRestaurants = restaurant_array.length;
 
-    
-    for (var count = 0; count < totalRestaurants; count++) {
 
-        if (restaurant_array[count]) {
+    for (var count = 0; count < totalRestaurants; count++) {
+        if (restaurant_array[count].cuisineID == category) {
+
             var thumbnail = restaurant_array[count].restaurantThumb;
             var title = restaurant_array[count].restaurantName;
             var cell = '<div class="card col-md-4 card-restaurant"><img class="card-img-top img-fluid" src="' + thumbnail + '" alt="Card image cap">\
@@ -59,13 +59,11 @@ function displayRestaurants() {
                             <div class = "favourites-section"><label class = "add-to-favourites">Add to Favourites</label><i class="fa-regular fa-heart custom-heart"></i>\
     </div>'
             table.insertAdjacentHTML('beforeend', cell);
-            
+
         }
-    
+
     }
-
 }
-
 
 
 function showRestaurantDetails(element) {
@@ -79,7 +77,39 @@ function showRestaurantDetails(element) {
     document.getElementById("contact").textContent = restaurant_array[item].restaurantContact;
     document.getElementById("WebLink").textContent = restaurant_array[item].restaurantWebLink;
     document.getElementById("Description").textContent = restaurant_array[item].restaurantDescription;
-    
+
+
+}
+
+function listChineseRestaurants(){
+    category = "1";
+    displayRestaurants(category);
+}
+
+function listMalayRestaurants(){
+
+    category = "2";
+    displayRestaurants(category);
+}
+
+function listIndianRestaurants(){
+
+    category = "3";
+    displayRestaurants(category);
+
+}
+
+function listWesternRestaurants(){
+
+    category = "4";
+    displayRestaurants(category);
+
+}
+
+function listJapaneseRestaurants(){
+
+    category = "5"
+    displayRestaurants(category);
 
 }
 

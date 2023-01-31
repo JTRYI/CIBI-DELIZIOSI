@@ -8,8 +8,8 @@ function loginMe() {
 
         $('#loginModal').modal('hide')
         
-        var token = JSON.parse(loginUser.responseText); // converting the token which is given by the server side to JSON format as
-                                                        // the result is given in string
+        var token = JSON.parse(loginUser.responseText); // converting the token which is given by the server side to a JSON object
+                                                        
         console.log(token.result);
 
         if (token.result != "Invalid") {

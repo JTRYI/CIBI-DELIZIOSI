@@ -1,0 +1,117 @@
+<!-- this is a structure of Bootstrap Modal -->
+<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog custom-password-mod" role="document">
+        <div class="modal-content password-content">
+            <div class="modal-body px-5 d-flex align-items-center">
+                <div class="form-input-section">
+                    <label class="passwordTitle">Update Password</label>
+
+                    <div class="form-group custom-form-password">
+                        <!--New Password input section-->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="fa-solid fa-lock"></i></span>
+                            </div>
+                            <input type="password" class="form-control" id="newPass" placeholder="Enter a new password"
+                                style="background-color: #A9927D;">
+                        </div>
+                    </div>
+
+                    <div class="form-group custom-form-password">
+                        <!--Confirm New Password input section-->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="fa-solid fa-lock"></i></span>
+                            </div>
+                            <input type="password" class="form-control" id="confirmNew"
+                                placeholder="Confirm your new password" style="background-color: #A9927D;">
+                        </div>
+                    </div>
+                    <div class="form-group col-12 text-center">
+                        <button type="button" class="btn btn-primary custom-btn-password"
+                            style="background-color: #A9927D" onclick="updatePassword()">Update Password</button>
+
+                    </div>
+
+                </div>
+
+                <img src="images/wine.jpg" class="wine-pass-img">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .custom-password-mod {
+
+        top: 15%;
+        left: 4%;
+        max-width: 704px;
+
+    }
+
+    .password-content {
+
+        background: linear-gradient(to bottom, #0a0908, #49111c);
+        max-height: 275px;
+    }
+
+    .passwordTitle {
+        color: #f2f4f3;
+        font-style: italic;
+        font-size: 25px;
+        text-align: center;
+        display: block;
+        transform: translateY(-20px);
+        /*Moving title up */
+
+    }
+
+
+    .wine-pass-img {
+        margin-left: 75px;
+        width: 230px;
+        height: 274px;
+        transform: translateY(-17px);
+        /* Moving wine img up */
+
+
+    }
+
+    .custom-form-password {
+        width: 350px;
+        transform: translateY(-10px);
+
+    }
+
+    .custom-btn-password {
+        color: #0a0908;
+        font-weight: bold;
+        border: #0a0908;
+        transform: translateY(5px);
+        /*Moves the button down */
+
+
+    }
+
+    .custom-btn-password:hover {
+        color: #0a0908;
+        font-weight: bold;
+        border: #0a0908;
+        opacity: 0.8;
+    }
+
+    #newPass::placeholder {
+        color: #0a0908;
+        font-weight: lighter;
+    }
+
+    #confirmNew::placeholder {
+        color: #0a0908;
+        font-weight: lighter;
+    }
+</style>

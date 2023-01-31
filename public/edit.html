@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="css/styles.css">
-   <title>CIBI DELIZIOSI</title>
+    <title>CIBI DELIZIOSI</title>
 
     <script>
         var firstName, lastName, picture, email, contact, birthday, token;
@@ -19,7 +19,7 @@
 
 <body class="edit-body">
 
-    <div class="header">
+    <div class="header" id="header-edit">
         <img src="images/food-banner.png" id="banner">
         <nav>
             <img src="images/Logo.png" id="logo">
@@ -57,7 +57,7 @@
         </nav>
     </div>
 
-    <div class="edit-box">
+    <div class="edit-box" id="edit-place">
         <form class="edit-form">
             <label for="update-title" class="update-title">Edit Profile</label>
             <div class="form-row">
@@ -121,6 +121,10 @@
                             <input type="Birthday" class="form-control" id="BirthdayUp" placeholder="day/month/year"
                                 style="background-color: #A9927D;">
                         </div>
+                        <label class="small-up"><a href="#" id="toggle-button" data-toggle="modal"
+                                data-target="#passwordModal">Update Password</a></label>
+
+                        <label class="delete-up"><a href="#" onclick="deleteAccount()">Delete Account</a></label>
 
                     </div>
 
@@ -138,7 +142,41 @@
 
     </div>
 
+    <!--Update password modal below-->
+    <div w3-include-html="update-pass-modal.html"></div>
+
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const header = document.getElementById("header-edit");
+        const editBox = document.getElementById("edit-place");
+        const modal = document.getElementById("passwordModal");
+        const toggleButton = document.getElementById("toggle-button");
+
+        toggleButton.addEventListener("click", function () {
+            modal.classList.toggle("show");
+            header.style.display = (header.style.display === "none") ? "block" : "none";
+            editBox.style.display = (editBox.style.display === "none") ? "block" : "none";
+        });
+
+        window.onclick = function (event) {
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) {
+                    modal.classList.toggle("show");
+                    header.style.display = "block";
+                    editBox.style.display = "block";
+                    location.reload();
+                }
+
+            });
+        }
+
+    });
+
+
+</script>
+
 
 <script src="https://www.w3schools.com/lib/w3.js"></script>
 <script>
@@ -172,7 +210,7 @@
         overflow-y: scroll;
         overflow-x: hidden;
         position: relative;
-        z-index: 0;
+        z-index: 1;
 
     }
 
@@ -182,7 +220,7 @@
         height: 55vh;
         border-radius: 5px;
         position: absolute;
-        z-index: 1;
+        z-index: 2;
         top: 175px;
         left: 320px;
 
@@ -234,7 +272,7 @@
         color: #0a0908;
         font-weight: bold;
         border: #0a0908;
-        transform: translateY(30px);
+        transform: translateY(15px);
         /* This code allows the button to be moved up. If move down the btn can write transform: translateY(valuepx ) */
 
     }
@@ -265,22 +303,45 @@
 
     }
 
-    .update-image{
+    .update-image {
         margin-left: 20px;
-        
+
     }
 
-    .update-image label{
+    .update-image label {
         color: #f2f4f3;
         font-weight: lighter;
-        
-        
+
+
     }
 
-    .update-image input{
+    .update-image input {
         color: #A9927D;
         font-weight: lighter;
-       
+
+    }
+
+
+    .small-up a {
+        color: #0a0908;
+        font-weight: 500;
+        margin-left: 10px;
+        text-decoration: none;
+        padding-right: 50px;
+    }
+
+    .small-up a:hover {
+        color: #f2f4f3;
+    }
+
+    .delete-up a{
+        color: #0a0908;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .delete-up a:hover{
+        color: #f2f4f3;
     }
 
 </style>
