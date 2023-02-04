@@ -41,6 +41,7 @@ function fetchUsers() {
 
 
 function displayRestaurants(category) {
+
     var table = document.getElementById("restaurantTable");
 
     table.innerHTML = "";
@@ -52,9 +53,14 @@ function displayRestaurants(category) {
 
             var thumbnail = restaurant_array[count].restaurantThumb;
             var title = restaurant_array[count].restaurantName;
+            var avgRating = restaurant_array[count].avgRating;
+            avgRating = Math.round( avgRating * 10) / 10;;
+            if (avgRating == null){
+                avgRating = "NA (No Reviews Yet)"
+            }
             var cell = '<div class="card col-md-4 card-restaurant"><img class="card-img-top img-fluid" src="' + thumbnail + '" alt="Card image cap">\
                             <div class="card-body">\<h5 style="cursor:pointer" data-toggle="modal" data-target="#restaurantModal" class="card-title" item="' + count + '" onClick="showRestaurantDetails(this)">' + title + '</h5></div>\
-                            <div class = "ratings-section"><label class = "view-ratings">Rating:</label></div>\
+                            <div class = "ratings-section"><label class = "view-ratings">Rating:</label> <span class = "avg-rating">'+ avgRating +' </span> <i class="fa-solid fa-star custom-front-star"></i> </div>\
                             <div class = "review-section"><label class = "view-reviews">View Reviews</label><i class="far fa-comment fa-lg custom-comment" style="float:left;cursor:pointer" data-toggle="modal" data-target="#reviewModal" item="' + count + '" onClick="showRestaurantReviews(this)"></i> </div>\
                             <div class = "favourites-section"><label class = "add-to-favourites">Add to Favourites</label><i class="fa-regular fa-heart custom-heart"></i>\
     </div>'
@@ -112,5 +118,7 @@ function listJapaneseRestaurants(){
     displayRestaurants(category);
 
 }
+
+
 
 

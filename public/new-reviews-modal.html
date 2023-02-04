@@ -1,9 +1,9 @@
 <div class="modal fade" id="newReviewModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-dark text-center">
+            <div class="modal-header text-center custom-res-header">
                 <h3 class="modal-title text-light">Contribute a Review</h3>
-                <button type="button" class="close bg-light" data-dismiss="modal">
+                <button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
             </div>
@@ -24,11 +24,36 @@
                     </div>
 
                     <div class="modal-footer">
-  <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitReview" onClick="addReview()">Submit</button>
-                        <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary new-rev-custom-submit" data-dismiss="modal" id="submitReview" onClick="addReview()">Submit</button>
+                        <button type="button" class="btn btn-secondary new-rev-custom-close" data-dismiss="modal">Close</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+
+    .new-rev-custom-close{
+        background-color: #a9927d;
+        color: #0a0908
+    }
+
+    .new-rev-custom-close:hover{
+        background-color: #a9927d;
+        opacity: 0.8;
+    }
+
+    .new-rev-custom-submit{
+        background-color: #49111c;
+        color: #f2f4f3;
+    }
+
+    .new-rev-custom-submit:hover{
+        background-color: #49111c;
+        color: #f2f4f3;
+        opacity: 0.8;
+    }
+
+</style>

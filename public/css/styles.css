@@ -211,7 +211,21 @@
     font-size: 17px;
     font-weight: 500; /* Semi bold */
     padding-left: 20px;
+    padding-right: 10px; /*Leaving space between label and the AvgRating */
 }
+
+.avg-rating{
+    color: #0a0908;
+    font-weight: bold;
+}
+
+.custom-front-star{
+
+   color: darkorange !important;
+
+}
+
+
 
 /* CSS for Reviews on the Restaurant card */
 .review-section{

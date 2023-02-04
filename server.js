@@ -19,6 +19,7 @@ app.route('/reviews').get(reviewController.getAllReviews); // activate the getAl
 app.route('/reviews').post(reviewController.addReview); // activate the addReview method if the route is POST(method) /reviews
 app.route('/reviews/:id').put(reviewController.updateReview); // activate the updateReview method if the route is PUT(method)  /reviews/:id
 app.route('/reviews/:id').delete(reviewController.deleteReview); // activate the deleteReview method if the route is DELETE(method) /reviews/:id
+app.route('/avgRating').post(reviewController.averageRating); //get average rating for a particular restaurant
 
 // routes for users
 app.route('/users').get(userController.getAllUsers); //Retrieving all users

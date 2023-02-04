@@ -78,4 +78,20 @@ function deleteReview(request, respond) {
 
 }
 
-module.exports = { getAllReviews, addReview, updateReview, deleteReview };
+function averageRating(request, respond){
+
+    var restaurantName = request.body.restaurant;
+
+    reviewsDB.averageRating(restaurantName, function(error,result){
+        if (error) {
+            respond.json(error);
+
+        } else {
+
+            respond.json(result);
+        }
+        
+    });
+}
+
+module.exports = { getAllReviews, addReview, updateReview, deleteReview, averageRating};

@@ -47,20 +47,21 @@ function updatePassword() {
 
     var updatePassword = new XMLHttpRequest();
 
-    updatePassword.open("PUT", "http://127.0.0.1:8080/password", true);
-    updatePassword.setRequestHeader("Content-Type", "application/json");
-    updatePassword.onload = function () {
-
         var newPass = document.getElementById("newPass").value;
         var confirmNewPass = document.getElementById("confirmNew").value;
 
         if (newPass != confirmNewPass) {
             alert("Password do not match.")
+            return;
         } else {
-            sessionStorage.removeItem("token");
-            sessionStorage.removeItem("profile");
-            location.reload();
-            alert("Password updated successfully, please login again.")
+            updatePassword.open("PUT", "http://127.0.0.1:8080/password", true);
+            updatePassword.setRequestHeader("Content-Type", "application/json");
+            updatePassword.onload = function () {
+                sessionStorage.removeItem("token");
+                sessionStorage.removeItem("profile");
+                location.reload();
+                alert("Password updated successfully, please login again.")
+            
 
         }
 

@@ -23,6 +23,11 @@ class ReviewsDB{
         return db.query(sql, [reviewID, username], callback);
     }
 
+    averageRating(restaurantName, callback){
+        var sql = "SELECT AVG(reviewRating) FROM mydb.review WHERE restaurant = ?"
+        return db.query(sql, [restaurantName], callback);
+    }
+
 }
 
 module.exports = ReviewsDB;
