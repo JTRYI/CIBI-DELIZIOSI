@@ -116,6 +116,7 @@ function showRestaurantDetails(element) {
 
 }
 
+// Map API
 function showMap(element) {
     var item = element.getAttribute("item");
     currentIndex = item;

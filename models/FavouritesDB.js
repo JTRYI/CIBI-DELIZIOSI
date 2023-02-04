@@ -5,7 +5,7 @@ var db = require('../db-connection');
 class FavouritesDB{
     
     getUserFavourites(username, callback){
-        var sql = "SELECT favourites.restaurantID FROM favourites LEFT JOIN user ON favourites.userID = user._id WHERE user.userName = ?";
+        var sql = "SELECT * FROM favourites, restaurant WHERE restaurant.restaurantName = favourites.restaurant AND username = ?";
         db.query(sql, [username], callback);
     }
 

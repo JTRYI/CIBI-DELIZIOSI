@@ -13,12 +13,6 @@ class RestaurantsDB{
 
     }
 
-    getFilteredRestaurants(callback){
-        
-        var sql = "SELECT restaurant.*, cuisines.Type FROM restaurant INNER JOIN cuisines ON restaurant.cuisineID = cuisines._id";
-        db.query(sql, callback);
-    }
-
 }
 
 
