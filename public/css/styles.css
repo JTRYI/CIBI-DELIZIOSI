@@ -180,7 +180,7 @@
 
 .card-restaurant{
     max-width: 325px;
-    height: 45vh;
+    height: 50vh;
     margin: 15px 20px; /* margin of 15px to the top and bottom and 20px to the left and right of the card*/
     background-color: #f2f4f3;
     border-color: #0a0908;
@@ -250,7 +250,7 @@
 .favourites-section{
     display: flex;
     align-items: center;
-    padding-bottom: 8px;
+    
 }
 
 .add-to-favourites{
@@ -266,6 +266,29 @@
     font-size: 20px;
     padding-bottom: 7px;
 }
+
+/* CSS for Maps on the Restaurant Card */
+
+.map-section{
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.view-map{
+    font-size: 17px;
+    font-weight: 500;
+    padding-right: 15px;
+    padding-left: 20px;
+}
+
+.custom-map{
+    font-size: 20px;
+    padding-bottom: 7px;
+    color: green !important;
+}
+
+
 
 /* CSS for Reviews */
 

@@ -12,7 +12,7 @@ app.use(express.json()); // json() is a method inbuilt in express to recognize t
 
 // routes for restaurants
 app.route('/restaurants').get(restaurantController.getAllRestaurants); // activate the getAllRestaurants method if the route is GET(method) /restaurants
-app.route('/restaurants/:Type').get(restaurantController.getFilteredRestaurants); // filtering restaurants with cuisines
+app.route('/typeRestaurants').get(restaurantController.getFilteredRestaurants); // filtering restaurants with cuisines
 
 // routes for reviews
 app.route('/reviews').get(reviewController.getAllReviews); // activate the getAllReviews method if the route is GET(method) /reviews

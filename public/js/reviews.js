@@ -93,7 +93,8 @@ function addReview() {
     postReview.setRequestHeader("Content-Type", "application/json");
     postReview.onload = function () {
         console.log("New review sent");
-        fetchReviews(); // fetch all comments again so that the web page can have updated comments.     
+        fetchReviews(); // fetch all comments again so that the web page can have updated comments.
+        location.reload();     
     };
 
     postReview.send(JSON.stringify(review));
@@ -193,6 +194,7 @@ function updateReview() {
         review_array[currentIndex].reviewRating = rating;
         updateReview.onload = function () {
             fetchReviews();
+            location.reload()
         };
         updateReview.send(JSON.stringify({
             review: document.getElementById('edituserComments').value,
@@ -215,6 +217,7 @@ function deleteReview(element) {
         eraseReview.setRequestHeader("Content-Type", "application/json");
         eraseReview.onload = function () {
             fetchReviews();
+            location.reload()
         };
 
         eraseReview.send(JSON.stringify({

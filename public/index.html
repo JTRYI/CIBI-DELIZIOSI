@@ -9,6 +9,10 @@
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="css/styles.css">
     <title>CIBI DELIZIOSI</title>
+
+    <script>
+        var map, infoWindow;
+    </script>
     
 </head>
 
@@ -93,9 +97,9 @@
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2 custom-search" type="search" placeholder="Search"
-                            aria-label="Search">
+                            aria-label="Search" id="searchInput">
                         <button class="btn btn-outline-success my-2 my-sm-0 custom-search-btn"
-                            type="submit">Search</button>
+                            type="submit" id="searchBtn">Search</button>
                     </form>
                 </div>
             </nav>
@@ -129,6 +133,8 @@
     <div w3-include-html="new-reviews-modal.html"></div>
     <!--Edit Review Modal below-->
     <div w3-include-html="edit-reviews-modal.html"></div>
+    <!--Map Modal Below-->
+    <div w3-include-html="map-modal.html"></div>
 
 </body>
 <script src="https://www.w3schools.com/lib/w3.js"></script>
@@ -150,6 +156,9 @@
 <script src="js/loadingProfile.js"></script>
 <script src="js/logout.js"></script>
 <script src="js/reviews.js"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZY5ZBy2UQ7T2dLWYtDGdJBjCD7eJa3MA"
+></script>
 
 
 
