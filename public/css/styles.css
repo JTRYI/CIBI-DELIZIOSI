@@ -123,11 +123,11 @@
 }
 
 .custom-nav-genre ul{
-    margin-left: 250px; /* Moving the whole nav-listings to the right */
+    margin-left: 225px; /* Moving the whole nav-listings to the right */
 }
 
 .nav-item{
-    padding: 0 40px; /* 0 from top and bottom, 25px from left and right. This padding for in between the listings */
+    padding: 0 25px; /* 0 from top and bottom, 25px from left and right. This padding for in between the listings */
 }
 
 .custom-genre{
@@ -139,9 +139,10 @@
 }
 
 .custom-search{
-    width: 250px !important;
+    width: 300px !important;
     background-color: #a9927d;
     border-color: #0a0908;
+    margin-right: 75px !important;
 }
 
 .custom-search::placeholder{
@@ -150,21 +151,6 @@
     
 }
 
-.custom-search-btn{
-    
-    background-color: #a9927d;
-    border-color: #0a0908;
-    color: #0a0908;
-    margin-right: 25px;
-
-}
-
-.custom-search-btn:hover{
-    background-color: #a9927d;
-    border-color: #0a0908;
-    color: #0a0908;
-    opacity: 0.8;
-}
 
 /* Restaurant Card Section */
 
@@ -265,6 +251,10 @@
 .custom-heart{
     font-size: 20px;
     padding-bottom: 7px;
+}
+
+.custom-heart:hover{
+    color: red;
 }
 
 /* CSS for Maps on the Restaurant Card */

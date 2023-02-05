@@ -32,7 +32,7 @@ app.route('/password').put(userController.updatePassword);  // Updating user pas
 
 // routes for favourites
 app.route('/favourites/:token').get(favouriteController.getUserFavourites); // Retrieving favourites from a particular user
-app.route('/favourites/:token').post(favouriteController.addToFavourites); // Add restaurant to favourites
+app.route('/favourites').post(favouriteController.addToFavourites); // Add restaurant to favourites
 app.route('/favourites/:id').delete(favouriteController.deleteFavourites); // deleting restaurant from favourite
 app.route('/numberFavourites').get(favouriteController.getNumberOfFavourites); // Retrieving the amount of people who favourited each restaurants
 

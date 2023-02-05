@@ -12,7 +12,7 @@
 
 </head>
 
-<body class="contact-body">
+<body class="favourites-body" onload="getFavouritesData()">
 
     <div class="header">
         <img src="images/food-banner.png" id="banner">
@@ -41,7 +41,6 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-profile" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="edit.html">Edit Profile</a>
-                                <a class="dropdown-item" href="favourites.html">View Favourites</a>
                                 <a class="dropdown-item" href="index.html" onclick="logoutMe()">Logout</a>
 
                             </div>
@@ -53,24 +52,23 @@
         </nav>
     </div>
 
-    <div class="contact-box">
-        <form>
-            <label class="contact-us-title">Contact Us</label>
-            <div class="form-group col-8">
-                <label for="contactEmail" id="contact-email-css">Email address</label>
-                <input type="email" class="form-control" id="contactEmail" placeholder="Name@example.com">
-            </div>
-
-            <div class="form-group col-12">
-                <label for="contactComments" id="contact-feedback-css">Feedback</label>
-                <textarea class="form-control" id="contactComments" rows="3"></textarea>
-            </div>
-
-            <button type="button" class="btn btn-primary custom-btn-contact col-4"
-                                style="background-color: #A9927D" onclick="sendEmail()">SUBMIT</button>
-        </form>
-
+    <div id="favouritesTable" class="row">
+        
     </div>
+
+    <style>
+        .favourites-body{
+            background-color: #0a0908;
+            overflow-x: hidden;
+        }
+
+        #favouritesTable{
+            margin-left: 35px;
+        }
+
+    </style>
+
+
 
     <!-- Register Modal below-->
     <div w3-include-html="register-modal.html"></div>
@@ -97,10 +95,6 @@
 
 </body>
 
-<script>
-    document.getElementById("registerMenu").style.visibility = "hidden";
-    document.getElementById("loginMenu").style.visibility = "hidden";
-</script>
 <script src="https://www.w3schools.com/lib/w3.js"></script>
 <script>
     //to bring in other HTML on the fly into this page
@@ -124,70 +118,8 @@
 <script src="js/reviews.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZY5ZBy2UQ7T2dLWYtDGdJBjCD7eJa3MA"></script>
 <script src="js/email.js"></script>
+<script src="js/favourites.js"></script>
+<script src="js/redirect.js"></script>
 
 </html>
 
-<style>
-
-    .contact-body{
-        background-color: #0a0908;
-        position: relative;
-        z-index: 1;
-        overflow-y: scroll;
-    }
-
-    .contact-box{
-        background: linear-gradient(to bottom, #0a0908, #49111c);
-        width: 50%;
-        height: 45vh;
-        border-radius: 5px;
-        position: absolute;
-        z-index: 2;
-        top: 190px;
-        left: 390px;
-
-    }
-
-    .contact-us-title{
-        color: #f2f4f3;
-        font-style: italic;
-        font-size: 25px;
-        text-align: center;
-        display: block;
-        margin: 0 auto;
-        margin-top: 10px;
-    }
-
-    #contact-email-css{
-        color: #f2f4f3;
-        font-size: 15px;
-        
-    }
-
-    #contact-feedback-css{
-        color: #f2f4f3;
-        font-size: 15px;
-    }
-
-    .custom-btn-contact{
-        margin: 0 auto;
-        display: block;
-        margin-top: 25px;
-        border: #0a0908;
-        color: #0a0908;
-
-    }
-
-    .custom-btn-contact:hover{
-        opacity: 0.8;
-    }
-
-    #contactEmail{
-        background-color: #f2f4f3;
-    }
-
-    #contactComments{
-        background-color: #f2f4f3;
-    }
-
-</style>

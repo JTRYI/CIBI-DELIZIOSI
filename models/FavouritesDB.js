@@ -9,14 +9,14 @@ class FavouritesDB{
         db.query(sql, [username], callback);
     }
 
-    addToFavourites(restaurantID, username, callback){
-        var sql = "INSERT INTO favourites (restaurantID, userID) SELECT ?, user._id FROM user WHERE user.userName = ?";
-        db.query(sql, [restaurantID, username], callback);
+    addToFavourites(restaurantID, userID, restaurant, username, callback){
+        var sql = "INSERT INTO favourites (restaurantID, userID, restaurant, username) VALUES (?, ?, ?, ?)";
+        db.query(sql, [restaurantID, userID, restaurant, username], callback);
     }
 
-    deleteFavourites(favouriteID, username, callback){
-        var sql = "DELETE from favourites WHERE _id = ? AND userID = (SELECT user._id FROM user WHERE user.userName = ?)";
-        db.query(sql, [favouriteID, username], callback);
+    deleteFavourites(restaurantID, username, callback){
+        var sql = "DELETE from favourites WHERE restaurantID = ? AND username = ?";
+        db.query(sql, [restaurantID, username], callback);
     }
 
     getNumberOfFavourites(callback){

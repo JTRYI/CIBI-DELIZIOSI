@@ -44,6 +44,7 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-profile" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="edit.html">Edit Profile</a>
+                              <a class="dropdown-item" href="favourites.html">View Favourites</a>
                               <a class="dropdown-item" href="#" onclick="logoutMe()">Logout</a>
                              
                             </div>
@@ -60,8 +61,7 @@
                 the <b>Location, Operating Hours</b> and <b>Reviews</b> are all available at <br> a click of a button.
                 <br>
                 <br>
-                Get started now by clicking <a href=""><i>Register!</i></a>
-
+                
             </p>
         </div>
     </div>
@@ -78,6 +78,10 @@
                 </button>
                 <div class="collapse navbar-collapse custom-nav-genre" id="navbarTogglerDemo01">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link custom-genre" href="#res-sec" onclick="listAllRestaurants()">All Restaurants</a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link custom-genre" href="#res-sec" onclick="listChineseRestaurants()">Chinese</a>
@@ -98,8 +102,6 @@
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2 custom-search" type="search" placeholder="Search"
                             aria-label="Search" id="searchInput">
-                        <button class="btn btn-outline-success my-2 my-sm-0 custom-search-btn"
-                            type="submit" id="searchBtn">Search</button>
                     </form>
                 </div>
             </nav>

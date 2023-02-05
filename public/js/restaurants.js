@@ -24,19 +24,19 @@ function getRestaurantData() {
 
 function fetchUsers() {
 
-    var fetchAllUser = new XMLHttpRequest();
+    var addToFav = new XMLHttpRequest();
 
-    fetchAllUser.open('GET', 'http://127.0.0.1:8080/users', true);
+    addToFav.open('GET', 'http://127.0.0.1:8080/users', true);
 
-    fetchAllUser.onload = function () {
+    addToFav.onload = function () {
 
-        user_array = JSON.parse(fetchAllUser.responseText);
+        user_array = JSON.parse(addToFav.responseText);
         //sessionStorage.setItem("users", JSON.stringify(user_array));
         //console.log(user_array)
 
     }
 
-    fetchAllUser.send();
+    addToFav.send();
 }
 
 
@@ -49,7 +49,7 @@ function displayRestaurants(category) {
 
 
     for (var count = 0; count < totalRestaurants; count++) {
-        if (restaurant_array[count].cuisineID == category) {
+        if (category == 0) {
             var thumbnail = restaurant_array[count].restaurantThumb;
             var title = restaurant_array[count].restaurantName;
             var avgRating = restaurant_array[count].avgRating;
@@ -61,45 +61,93 @@ function displayRestaurants(category) {
                             <div class="card-body">\<h5 style="cursor:pointer" data-toggle="modal" data-target="#restaurantModal" class="card-title" item="' + count + '" onClick="showRestaurantDetails(this)">' + title + '</h5></div>\
                             <div class = "ratings-section"><label class = "view-ratings">Rating:</label> <span class = "avg-rating">'+ avgRating + ' </span> <i class="fa-solid fa-star custom-front-star"></i> </div>\
                             <div class = "review-section"><label class = "view-reviews">View Reviews</label><i class="far fa-comment fa-lg custom-comment" style="float:left;cursor:pointer" data-toggle="modal" data-target="#reviewModal" item="' + count + '" onClick="showRestaurantReviews(this)"></i> </div>\
-                            <div class = "favourites-section"><label class = "add-to-favourites">Add to Favourites</label><i class="fa-regular fa-heart custom-heart"></i> </div>\
+                            <div class = "favourites-section"><label class = "add-to-favourites">Add to Favourites</label><i class="fa-regular fa-heart custom-heart" item="' + count + '" style="float:left;cursor:pointer" onClick = "addToFavourites(this)"></i> </div>\
                             <div class = "map-section"><label class = "view-map">View Map</label> <i class="fa-solid fa-location-dot custom-map" style="float:left;cursor:pointer" data-toggle="modal" data-target="#mapModal" item="' + count + '" onClick = "showMap(this)"></i> </div>\
     </div>'
             table.insertAdjacentHTML('beforeend', cell);
+        } else {
 
+            if (restaurant_array[count].cuisineID == category) {
+                var thumbnail = restaurant_array[count].restaurantThumb;
+                var title = restaurant_array[count].restaurantName;
+                var avgRating = restaurant_array[count].avgRating;
+                avgRating = Math.round(avgRating * 10) / 10;;
+                if (avgRating == 0) {
+                    avgRating = "NA (No Reviews Yet)"
+                }
+                var cell = '<div class="card col-md-4 card-restaurant"><img class="card-img-top img-fluid" src="' + thumbnail + '" alt="Card image cap">\
+                                <div class="card-body">\<h5 style="cursor:pointer" data-toggle="modal" data-target="#restaurantModal" class="card-title" item="' + count + '" onClick="showRestaurantDetails(this)">' + title + '</h5></div>\
+                                <div class = "ratings-section"><label class = "view-ratings">Rating:</label> <span class = "avg-rating">'+ avgRating + ' </span> <i class="fa-solid fa-star custom-front-star"></i> </div>\
+                                <div class = "review-section"><label class = "view-reviews">View Reviews</label><i class="far fa-comment fa-lg custom-comment" style="float:left;cursor:pointer" data-toggle="modal" data-target="#reviewModal" item="' + count + '" onClick="showRestaurantReviews(this)"></i> </div>\
+                                <div class = "favourites-section"><label class = "add-to-favourites">Add to Favourites</label><i class="fa-regular fa-heart custom-heart" item="' + count + '" style="float:left;cursor:pointer" onClick = "addToFavourites(this)"></i> </div>\
+                                <div class = "map-section"><label class = "view-map">View Map</label> <i class="fa-solid fa-location-dot custom-map" style="float:left;cursor:pointer" data-toggle="modal" data-target="#mapModal" item="' + count + '" onClick = "showMap(this)"></i> </div>\
+        </div>'
+                table.insertAdjacentHTML('beforeend', cell);
+
+            }
         }
 
     }
 
 }
 
+function addToFavourites(element){
+
+    var item = element.getAttribute("item");
+    currentIndex = item;
+
+    var profile = JSON.parse(sessionStorage.getItem("profile"));
+
+    var addToFav = new XMLHttpRequest();
+
+    addToFav.open('POST', 'http://127.0.0.1:8080/favourites', true);
+    addToFav.setRequestHeader("Content-Type", "application/json");
+    addToFav.onload = function () {
+
+        alert("Restaurant added to favourites!")
+    }
+
+    var restaurantID = restaurant_array[item]._id;
+    
+    var restaurant = restaurant_array[item].restaurantName;
+
+    var username = profile[0].userName;
+
+    var payload = {restaurantID: restaurantID, restaurant: restaurant, username: username}
+
+    addToFav.send(JSON.stringify(payload));
+
+}
+
 // Search function
-document.getElementById("searchBtn").addEventListener("click", function(event) {
+document.getElementById("searchInput").addEventListener("input", function (event) {
     event.preventDefault();
     var input = document.getElementById("searchInput").value.toLowerCase();
+    console.log(input);
     var table = document.getElementById("restaurantTable");
     table.innerHTML = "";
 
     for (var count = 0; count < restaurant_array.length; count++) {
-      var title = restaurant_array[count].restaurantName.toLowerCase();
-      if (title.includes(input)) {
-        var thumbnail = restaurant_array[count].restaurantThumb;
-        var title = restaurant_array[count].restaurantName;
-        var avgRating = restaurant_array[count].avgRating;
-        avgRating = Math.round(avgRating * 10) / 10;;
-        if (avgRating == 0) {
-            avgRating = "NA (No Reviews Yet)"
-        }
-        var cell = '<div class="card col-md-4 card-restaurant"><img class="card-img-top img-fluid" src="' + thumbnail + '" alt="Card image cap">\
+        var title = restaurant_array[count].restaurantName.toLowerCase();
+        if (title.includes(input)) {
+            var thumbnail = restaurant_array[count].restaurantThumb;
+            var title = restaurant_array[count].restaurantName;
+            var avgRating = restaurant_array[count].avgRating;
+            avgRating = Math.round(avgRating * 10) / 10;;
+            if (avgRating == 0) {
+                avgRating = "NA (No Reviews Yet)"
+            }
+            var cell = '<div class="card col-md-4 card-restaurant"><img class="card-img-top img-fluid" src="' + thumbnail + '" alt="Card image cap">\
         <div class="card-body">\<h5 style="cursor:pointer" data-toggle="modal" data-target="#restaurantModal" class="card-title" item="' + count + '" onClick="showRestaurantDetails(this)">' + title + '</h5></div>\
         <div class = "ratings-section"><label class = "view-ratings">Rating:</label> <span class = "avg-rating">'+ avgRating + ' </span> <i class="fa-solid fa-star custom-front-star"></i> </div>\
         <div class = "review-section"><label class = "view-reviews">View Reviews</label><i class="far fa-comment fa-lg custom-comment" style="float:left;cursor:pointer" data-toggle="modal" data-target="#reviewModal" item="' + count + '" onClick="showRestaurantReviews(this)"></i> </div>\
-        <div class = "favourites-section"><label class = "add-to-favourites">Add to Favourites</label><i class="fa-regular fa-heart custom-heart"></i> </div>\
+        <div class = "favourites-section"><label class = "add-to-favourites">Add to Favourites</label><i class="fa-regular fa-heart custom-heart" item="' + count + '" style="float:left;cursor:pointer" onClick = "addToFavourites(this)"></i> </div>\
         <div class = "map-section"><label class = "view-map">View Map</label> <i class="fa-solid fa-location-dot custom-map" style="float:left;cursor:pointer" data-toggle="modal" data-target="#mapModal" item="' + count + '" onClick = "showMap(this)"></i> </div>\
 </div>'
-        table.insertAdjacentHTML('beforeend', cell);
-      }
+            table.insertAdjacentHTML('beforeend', cell);
+        }
     }
-  });
+});
 
 
 function showRestaurantDetails(element) {
@@ -137,7 +185,7 @@ function showMap(element) {
     google.maps.event.addListener(marker, 'click', (function (marker, i) {
         return function () {
             infowindow.setContent(location[0]);
-            infowindow.open(map,marker);
+            infowindow.open(map, marker);
         }
     })(marker, i));
     navigator.geolocation.getCurrentPosition(
@@ -159,11 +207,19 @@ function showMap(element) {
             google.maps.event.addListener(marker, 'click', (function (marker, i) {
                 return function () {
                     infowindow.setContent("Your current location");
-                    infowindow.open(map,marker);
+                    infowindow.open(map, marker);
                 }
             })(marker, i));
         }
     )
+}
+
+
+
+
+function listAllRestaurants() {
+    category = 0;
+    displayRestaurants(category);
 }
 
 function listChineseRestaurants() {
